@@ -36,7 +36,7 @@ namespace Proyecto_02
             Console.WriteLine("══════════════════════");
             Console.WriteLine($" 0  1  2  3  4  5  6");
             visualizacion.posicionactual();
-            Jugadorvs.mostarturno1();
+            
 
 
             //Jugadorvs.mostarturno1();
