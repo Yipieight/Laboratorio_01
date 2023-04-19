@@ -6,3 +6,10 @@ C:\Users\DELL\Documents\GitHub\Laboratorio_02\Proyecto_02\Proyecto_02\obj\Debug\
 C:\Users\DELL\Documents\GitHub\Laboratorio_02\Proyecto_02\Proyecto_02\obj\Debug\Proyecto_02.csproj.CoreCompileInputs.cache
 C:\Users\DELL\Documents\GitHub\Laboratorio_02\Proyecto_02\Proyecto_02\obj\Debug\Proyecto_02.exe
 C:\Users\DELL\Documents\GitHub\Laboratorio_02\Proyecto_02\Proyecto_02\obj\Debug\Proyecto_02.pdb
+C:\Users\ASUS\Documents\GitHub\Proyecto_02\Proyecto_02\Proyecto_02\bin\Debug\Proyecto_02.exe.config
+C:\Users\ASUS\Documents\GitHub\Proyecto_02\Proyecto_02\Proyecto_02\bin\Debug\Proyecto_02.exe
+C:\Users\ASUS\Documents\GitHub\Proyecto_02\Proyecto_02\Proyecto_02\bin\Debug\Proyecto_02.pdb
+C:\Users\ASUS\Documents\GitHub\Proyecto_02\Proyecto_02\Proyecto_02\obj\Debug\Proyecto_02.csproj.AssemblyReference.cache
+C:\Users\ASUS\Documents\GitHub\Proyecto_02\Proyecto_02\Proyecto_02\obj\Debug\Proyecto_02.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\Documents\GitHub\Proyecto_02\Proyecto_02\Proyecto_02\obj\Debug\Proyecto_02.exe
+C:\Users\ASUS\Documents\GitHub\Proyecto_02\Proyecto_02\Proyecto_02\obj\Debug\Proyecto_02.pdb
