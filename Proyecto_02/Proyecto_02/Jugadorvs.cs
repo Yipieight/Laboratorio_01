@@ -9,6 +9,7 @@ namespace Proyecto_02
     class Jugadorvs
     {
         public static bool jugadoractual = true;
+        public static string[] nombreactual = new string[2] { "Jugador 1", "Jugador 2" };
         public static string piezactual = "";
         public static string jugador1 = "o";
         public static string jugador2 = "x";
@@ -21,17 +22,15 @@ namespace Proyecto_02
         }
         public static void jugador1o2()
         {
-            if(jugadoractual == true)
+            if(piezactual != jugador1 || piezactual == "")
             {
                 piezactual = jugador1;
                 Jugadorvs.colocarpieza();
-                jugadoractual = false;
             }
             else
             {
                 piezactual = jugador2;
                 Jugadorvs.colocarpieza();
-                jugadoractual = true;
             }
         }
         

@@ -9,39 +9,44 @@ namespace Proyecto_02
 {
     internal class Conecta4
     {
+        public static string denuevo = "";
         public static string opciondejuego;
         public static bool ganador = false;
         static void Main(string[] args)
         {
             Tabla.tablacrear();
-            Console.WriteLine("¿De que forma quiere jugar conecta 4? \n");
-            Console.WriteLine("1. Jugador vs Jugador");
-            Console.WriteLine(("2. Jugador vs Computadora"));
-            opciondejuego = Console.ReadLine();
-            if (opciondejuego == "1")
+            visualizacion.bienvenida();
+            do
             {
-                Tabla.tablamostrar();
-                while(ganador != true)
+                Console.Clear();
+                Console.WriteLine("\r\n██╗░░██╗░█████╗░██╗░░░░░░█████╗░\r\n██║░░██║██╔══██╗██║░░░░░██╔══██╗\r\n███████║██║░░██║██║░░░░░███████║\r\n██╔══██║██║░░██║██║░░░░░██╔══██║\r\n██║░░██║╚█████╔╝███████╗██║░░██║\r\n╚═╝░░╚═╝░╚════╝░╚══════╝╚═╝░░╚═╝");
+
+                Console.WriteLine("¿De que forma quiere jugar conecta 4? \n");
+                Console.WriteLine("1. Jugador vs Jugador");
+                Console.WriteLine(("2. Jugador vs Computadora"));
+                opciondejuego = Console.ReadLine();
+                if (opciondejuego == "1")
                 {
-                    Jugadorvs.jugador1o2();
-                    Ganoperdio.rectarriba();
+                    Tabla.tablamostrar();
+                    while (ganador != true)
+                    {
+                        Jugadorvs.jugador1o2();
+                        Ganoperdio.rectarriba();
+                    }
+
                 }
-
             }
-            else
-            {
-
-            }
+            while(true);
         }
 
-        public static void jugadorvs()
+        public static void jugardenuevo()
         {
-            
+            Console.Clear();
+            Console.WriteLine("¿Desea Jugar de nuevo? (Si/No)");
+            denuevo = Console.ReadLine().ToLower();
         }
-        public static void jugavsbot()
-        {
-            
-        }
+
+
     }
 
     
