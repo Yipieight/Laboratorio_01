@@ -19,8 +19,6 @@ namespace Proyecto_02
             do
             {
                 Console.Clear();
-                Console.WriteLine("\r\n██╗░░██╗░█████╗░██╗░░░░░░█████╗░\r\n██║░░██║██╔══██╗██║░░░░░██╔══██╗\r\n███████║██║░░██║██║░░░░░███████║\r\n██╔══██║██║░░██║██║░░░░░██╔══██║\r\n██║░░██║╚█████╔╝███████╗██║░░██║\r\n╚═╝░░╚═╝░╚════╝░╚══════╝╚═╝░░╚═╝");
-
                 Console.WriteLine("¿De que forma quiere jugar conecta 4? \n");
                 Console.WriteLine("1. Jugador vs Jugador");
                 Console.WriteLine(("2. Jugador vs Computadora"));
@@ -36,7 +34,7 @@ namespace Proyecto_02
 
                 }
             }
-            while(true);
+            while(denuevo != "no");
         }
 
         public static void jugardenuevo()
