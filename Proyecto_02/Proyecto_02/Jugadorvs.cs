@@ -8,7 +8,8 @@ namespace Proyecto_02
 {
     class Jugadorvs
     {
-        
+        public static bool jugadoractual = true;
+        public static string piezactual = "";
         public static string jugador1 = "o";
         public static string jugador2 = "x";
         public static int columna = 0;
@@ -17,6 +18,21 @@ namespace Proyecto_02
             Console.WriteLine("Ingrese en que columna desea colocar una ficha en la tabla");
             columna = int.Parse(Console.ReadLine());
             Tabla.tablacolocar();
+        }
+        public static void jugador1o2()
+        {
+            if(jugadoractual == true)
+            {
+                piezactual = jugador1;
+                Jugadorvs.colocarpieza();
+                jugadoractual = false;
+            }
+            else
+            {
+                piezactual = jugador2;
+                Jugadorvs.colocarpieza();
+                jugadoractual = true;
+            }
         }
         
     }

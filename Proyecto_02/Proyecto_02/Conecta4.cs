@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Proyecto_02
 {
-    internal class Program
+    internal class Conecta4
     {
         public static string opciondejuego;
         public static bool ganador = false;
@@ -20,12 +20,13 @@ namespace Proyecto_02
             opciondejuego = Console.ReadLine();
             if (opciondejuego == "1")
             {
+                Tabla.tablamostrar();
                 while(ganador != true)
                 {
-                    Tabla.tablamostrar();
-                    Jugadorvs.colocarpieza();
+                    Jugadorvs.jugador1o2();
+                    Ganoperdio.rectarriba();
                 }
-                
+
             }
             else
             {

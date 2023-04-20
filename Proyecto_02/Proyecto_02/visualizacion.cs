@@ -14,7 +14,7 @@ namespace Proyecto_02
             posicionac[0] = Console.CursorLeft;
             posicionac[1] = Console.CursorTop;
         }
-        public static void mostarturnij1()
+        public static void mostarturnoj1()
         {
             Console.SetCursorPosition(24, 2);
             Console.Write("TURNO DE:\n");
@@ -24,7 +24,7 @@ namespace Proyecto_02
             Console.Write("█▄█  █");
             Console.SetCursorPosition(posicionac[0], posicionac[1]);
         }
-        public static void mostarturnij2()
+        public static void mostarturnoj2()
         {
             Console.SetCursorPosition(24, 2);
             Console.Write("TURNO DE:\n");
@@ -33,6 +33,18 @@ namespace Proyecto_02
             Console.SetCursorPosition(25, 4);
             Console.Write("█▄█ █▄");
             Console.SetCursorPosition(posicionac[0], posicionac[1]);
+        }
+
+        public static void mostraractual()
+        {
+            if (Jugadorvs.jugadoractual == true)
+            {
+                mostarturnoj1();
+            }
+            else
+            {
+                mostarturnoj2();
+            }
         }
     }
 }

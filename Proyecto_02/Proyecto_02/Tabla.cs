@@ -36,15 +36,12 @@ namespace Proyecto_02
             Console.WriteLine("══════════════════════");
             Console.WriteLine($" 0  1  2  3  4  5  6");
             visualizacion.posicionactual();
-            
-
-
-            //Jugadorvs.mostarturno1();
+            visualizacion.mostraractual();
         }
 
         public static void tablacolocar()
         {
-            if (tabla[0, Jugadorvs.columna].Contains(Jugadorvs.jugador1))
+            if (tabla[0, Jugadorvs.columna].Contains(Jugadorvs.jugador1) || tabla[0, Jugadorvs.columna].Contains(Jugadorvs.jugador2))
             {
                 Console.WriteLine("Ya se lleno la columan pruebe con otro");
                 Console.ReadKey();
@@ -53,9 +50,9 @@ namespace Proyecto_02
             {
                 for (int i = 5; i >= 0; i--)
                 {
-                    if (!(tabla[i, Jugadorvs.columna].Contains(Jugadorvs.jugador1)))
+                    if (!(tabla[i, Jugadorvs.columna].Contains(Jugadorvs.jugador1)) && !(tabla[i, Jugadorvs.columna].Contains(Jugadorvs.jugador2)))
                     {
-                        tabla[i, Jugadorvs.columna] = tabla[i, Jugadorvs.columna].Replace(" ", Jugadorvs.jugador1);
+                        tabla[i, Jugadorvs.columna] = tabla[i, Jugadorvs.columna].Replace(" ", Jugadorvs.piezactual);
                         i = 0;
                     }
 
