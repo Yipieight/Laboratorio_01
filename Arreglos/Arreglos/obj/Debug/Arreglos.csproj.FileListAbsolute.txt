@@ -1,0 +1,8 @@
+C:\Users\DELL\Documents\GitHub\Laboratorio_02\Arreglos\Arreglos\bin\Debug\Arreglos.exe.config
+C:\Users\DELL\Documents\GitHub\Laboratorio_02\Arreglos\Arreglos\bin\Debug\Arreglos.exe
+C:\Users\DELL\Documents\GitHub\Laboratorio_02\Arreglos\Arreglos\bin\Debug\Arreglos.pdb
+C:\Users\DELL\Documents\GitHub\Laboratorio_02\Arreglos\Arreglos\obj\Debug\Arreglos.csproj.AssemblyReference.cache
+C:\Users\DELL\Documents\GitHub\Laboratorio_02\Arreglos\Arreglos\obj\Debug\Arreglos.csproj.SuggestedBindingRedirects.cache
+C:\Users\DELL\Documents\GitHub\Laboratorio_02\Arreglos\Arreglos\obj\Debug\Arreglos.csproj.CoreCompileInputs.cache
+C:\Users\DELL\Documents\GitHub\Laboratorio_02\Arreglos\Arreglos\obj\Debug\Arreglos.exe
+C:\Users\DELL\Documents\GitHub\Laboratorio_02\Arreglos\Arreglos\obj\Debug\Arreglos.pdb
