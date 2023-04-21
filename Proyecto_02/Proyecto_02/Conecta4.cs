@@ -31,7 +31,7 @@ namespace Proyecto_02
                     while (ganador != true)
                     {
                         Jugadorvs.jugador1o2();
-                        Ganoperdio.rectarriba();
+                        Ganoperdio.comprobar();
                     }
 
                 }
