@@ -30,11 +30,11 @@ namespace Proyecto_02
                                         if(Jugadorvs.piezactual == Jugadorvs.jugador1)
                                         {
                                             visualizacion.ganador();
-                                            Console.Write("\n¡El " + Jugadorvs.nombreactual[0] + " es el ganador!");
+                                            Console.Write("\n¡El jugador " + Jugadorvs.nombreactual[0] + " (J1) es el ganador!");
                                         }
                                         else if (Jugadorvs.piezactual == Jugadorvs.jugador2)
                                         {
-                                            Console.WriteLine("\n¡El "+ Jugadorvs.nombreactual[1] +" es el ganador!");
+                                            Console.WriteLine("\n¡El jugador "+ Jugadorvs.nombreactual[1] +" (J2) es el ganador!");
                                         }
                                         else
                                         {

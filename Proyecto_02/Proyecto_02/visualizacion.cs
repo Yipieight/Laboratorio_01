@@ -5,12 +5,15 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace Proyecto_02
 {
     class visualizacion
     {
         public static int[] posicionac = new int[2];
+        public static Stopwatch stopwatch = new Stopwatch();
+        public static string[] tiempoP = new string[10];
         public static void posicionactual()
         {
             posicionac[0] = Console.CursorLeft;
@@ -18,12 +21,14 @@ namespace Proyecto_02
         }
         public static void mostrarturnoj1()
         {
-            Console.SetCursorPosition(24, 2);
-            Console.Write("TURNO DE:\n");
+            Console.SetCursorPosition(24, 1);
+            Console.Write("TURNO DE:");
             Console.SetCursorPosition(25, 3);
             Console.Write("  █ ▄█");
+            Console.Write("  (" + Jugadorvs.nombreactual[0] + ")");
             Console.SetCursorPosition(25, 4);
             Console.Write("█▄█  █");
+            Console.SetCursorPosition(32, 3);
             Console.SetCursorPosition(posicionac[0], posicionac[1]);
         }
         public static void mostrarturnoj2()
@@ -32,6 +37,7 @@ namespace Proyecto_02
             Console.WriteLine("TURNO DE:\n");
             Console.SetCursorPosition(25, 3);
             Console.Write("  █ ▀█");
+            Console.Write("  (" + Jugadorvs.nombreactual[1] + ")");
             Console.SetCursorPosition(25, 4);
             Console.Write("█▄█ █▄");
             Console.SetCursorPosition(posicionac[0], posicionac[1]);
@@ -59,10 +65,7 @@ namespace Proyecto_02
             string visible = "Presione cualquier tecla para continuar...";
             string invisible = " ";
             string mostrar = visible;
-            do
-            {
-                Console.Clear();
-                Console.WriteLine(""+
+            Console.WriteLine("" +
                 "\r\n ██████╗░██╗███████╗███╗░░██╗██╗░░░██╗███████╗███╗░░██╗██╗██████╗░░" + "█████╗░  ░█████╗░" +
                 "\r\n ██╔══██╗██║██╔════╝████╗░██║██║░░░██║██╔════╝████╗░██║██║" + "██╔══██╗██╔══██╗  ██╔══██╗" +
                 "\r\n ██████╦╝██║█████╗░░██╔██╗██║╚██╗░██╔╝█████╗░░██╔" + "██╗██║██║██║░░██║██║░░██║  ███████║" +
@@ -75,19 +78,40 @@ namespace Proyecto_02
                 "\r\n\t██║░░██╗██║░░██║██║╚████║██╔══╝░░██║░░██╗░░░██║░░░██╔══██║  ███████║" +
                 "\r\n\t╚█████╔╝╚█████╔╝██║░╚███║███████╗╚█████╔╝░░░██║░░░██║░░██║  ╚════██║" +
                 "\r\n\t░╚════╝░░╚════╝░╚═╝░░╚══╝╚══════╝░╚════╝░░░░╚═╝░░░╚═╝░░╚═╝  ░░░░░╚═╝");
+            do
+            {
                 Console.SetCursorPosition(20, 15);
                 Console.WriteLine(mostrar);
-                Thread.Sleep(600);
-                if(mostrar.Any(char.IsLetter))
+                Thread.Sleep(750);
+                if (mostrar.Any(char.IsLetter))
                 {
-                    mostrar = mostrar.Replace(visible,invisible);
+                    Console.SetCursorPosition(20, 15);
+                    mostrar = mostrar.Replace(visible, invisible);
                 }
                 else
                 {
+                    Console.SetCursorPosition(20, 15);
                     mostrar = mostrar.Replace(invisible, visible);
                 }
+                Console.Write(new string(' ', Console.WindowWidth));
             }
-            while (!Console.KeyAvailable); 
+            while (!Console.KeyAvailable);
+        }
+        public static void tiempoinicial()
+        {
+            stopwatch.Start();
+        }
+        public static void tiempofinal()
+        {
+            stopwatch.Stop();
+            for (int e = 0; e < 10; e++)
+            {
+                if (!tiempoP[e].Any(char.IsDigit))
+                {
+                    TimeSpan tiempoTranscurrido = stopwatch.Elapsed;
+                    tiempoP[e] = tiempoTranscurrido.ToString("hh':'mm':'ss'.'fff");
+                }
+            }
         }
     }
 }

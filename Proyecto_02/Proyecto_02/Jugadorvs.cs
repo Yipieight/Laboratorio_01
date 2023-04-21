@@ -9,7 +9,7 @@ namespace Proyecto_02
     class Jugadorvs
     {
         public static bool jugadoractual = true;
-        public static string[] nombreactual = new string[2] { "Jugador 1", "Jugador 2" };
+        public static string[] nombreactual = new string[2];
         public static string piezactual = "";
         public static string jugador1 = "o";
         public static string jugador2 = "x";
@@ -32,6 +32,13 @@ namespace Proyecto_02
                 piezactual = jugador2;
                 Jugadorvs.colocarpieza();
             }
+        }
+        public static void nombrejugadores()
+        {
+            Console.WriteLine("Ingrese el nombre del primer jugador (J1)");
+            nombreactual[0] = Console.ReadLine();
+            Console.WriteLine("Ingrese el nombre del segundo jugador (J2)");
+            nombreactual[1] = Console.ReadLine();
         }
         
     }

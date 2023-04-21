@@ -25,6 +25,8 @@ namespace Proyecto_02
                 opciondejuego = Console.ReadLine();
                 if (opciondejuego == "1")
                 {
+                    ganador = false;
+                    Jugadorvs.nombrejugadores();
                     Tabla.tablamostrar();
                     while (ganador != true)
                     {
