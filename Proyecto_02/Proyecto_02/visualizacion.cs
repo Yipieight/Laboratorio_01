@@ -82,7 +82,7 @@ namespace Proyecto_02
             {
                 Console.SetCursorPosition(20, 15);
                 Console.WriteLine(mostrar);
-                Thread.Sleep(750);
+                Thread.Sleep(700);
                 if (mostrar.Any(char.IsLetter))
                 {
                     Console.SetCursorPosition(20, 15);

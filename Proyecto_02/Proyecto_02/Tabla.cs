@@ -53,7 +53,7 @@ namespace Proyecto_02
                     if (!(tabla[i, Jugadorvs.columna].Contains(Jugadorvs.jugador1)) && !(tabla[i, Jugadorvs.columna].Contains(Jugadorvs.jugador2)))
                     {
                         tabla[i, Jugadorvs.columna] = tabla[i, Jugadorvs.columna].Replace(" ", Jugadorvs.piezactual);
-                        i = 0;
+                        break;
                     }
 
                 }

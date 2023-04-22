@@ -11,8 +11,8 @@ namespace Proyecto_02
         public static bool jugadoractual = true;
         public static string[] nombreactual = new string[2];
         public static string piezactual = "";
-        public static string jugador1 = "o";
-        public static string jugador2 = "x";
+        public static string jugador1 = "♦";
+        public static string jugador2 = "♣";
         public static int columna = 0;
         public static void colocarpieza()
         {
