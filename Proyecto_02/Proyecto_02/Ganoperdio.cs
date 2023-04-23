@@ -176,6 +176,7 @@ namespace Proyecto_02
                     }
                 }
             }
+
             Tabla.tablamostrar();
         }
     }
