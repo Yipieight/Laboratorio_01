@@ -14,7 +14,6 @@ namespace Proyecto_02
         public static bool ganador = false;
         static void Main(string[] args)
         {
-            Tabla.tablacrear();
             visualizacion.bienvenida();
             do
             {
@@ -22,8 +21,21 @@ namespace Proyecto_02
                 Console.WriteLine("¿De que forma quiere jugar conecta 4? \n");
                 Console.WriteLine("1. Jugador vs Jugador");
                 Console.WriteLine(("2. Jugador vs Computadora"));
+                Console.WriteLine("3. Salir");
                 opciondejuego = Console.ReadLine();
                 if (opciondejuego == "1")
+                {
+                    Tabla.tablacrear();
+                    ganador = false;
+                    Jugadorvs.nombrejugadores();
+                    Tabla.tablamostrar();
+                    while (ganador != true)
+                    {
+                        Jugadorvs.jugador1o2();
+                        Ganoperdio.comprobar();
+                    }
+                }
+                else if (opciondejuego == "2")
                 {
                     ganador = false;
                     Jugadorvs.nombrejugadores();
@@ -33,10 +45,9 @@ namespace Proyecto_02
                         Jugadorvs.jugador1o2();
                         Ganoperdio.comprobar();
                     }
-
                 }
             }
-            while(denuevo != "no");
+            while(opciondejuego != "3");
         }
 
         public static void jugardenuevo()

@@ -13,7 +13,7 @@ namespace Proyecto_02
     {
         public static int[] posicionac = new int[2];
         public static Stopwatch stopwatch = new Stopwatch();
-        public static string[] tiempoP = new string[10];
+        public static string[] tiempoP = new string[10] {"","","","","","","","","",""};
         public static void posicionactual()
         {
             posicionac[0] = Console.CursorLeft;
@@ -22,7 +22,7 @@ namespace Proyecto_02
         public static void mostrarturnoj1()
         {
             Console.SetCursorPosition(24, 1);
-            Console.Write("TURNO DE:");
+            Console.Write("TURNO DE:\n");
             Console.SetCursorPosition(25, 3);
             Console.Write("  █ ▄█");
             Console.Write("  (" + Jugadorvs.nombreactual[0] + ")");
@@ -42,10 +42,21 @@ namespace Proyecto_02
             Console.Write("█▄█ █▄");
             Console.SetCursorPosition(posicionac[0], posicionac[1]);
         }
+
+        public static void mostrarturnobot()
+        {
+            Console.SetCursorPosition(24, 2);
+            Console.WriteLine("TURNO DE:\n");
+            Console.SetCursorPosition(25, 3);
+            Console.Write("█▄▄ █▀█ ▀█▀");
+            Console.Write("  (" + Jugadorvs.nombreactual[1] + ")");
+            Console.SetCursorPosition(25, 4);
+            Console.Write("█▄█ █▄█  █");
+            Console.SetCursorPosition(posicionac[0], posicionac[1]);
+        }
         public static void ganador()
         {
-            Console.WriteLine("\n█▀▀ ▄▀█ █▄░█ ▄▀█ █▀▄ █▀█ █▀█ ▄");
-            Console.Write("█▄█ █▀█ █░▀█ █▀█ █▄▀ █▄█ █▀▄ ▄");
+            Console.WriteLine("\n█▀▀ ▄▀█ █▄░█ ▄▀█ █▀▄ █▀█ █▀█ ▄\r\n█▄█ █▀█ █░▀█ █▀█ █▄▀ █▄█ █▀▄ ▄");
         }
 
         public static void mostraractual()
@@ -104,12 +115,13 @@ namespace Proyecto_02
         public static void tiempofinal()
         {
             stopwatch.Stop();
-            for (int e = 0; e < 10; e++)
+            for (int k = 0; k < 10; k++)
             {
-                if (!tiempoP[e].Any(char.IsDigit))
+                if (!tiempoP[k].Contains(":"))
                 {
                     TimeSpan tiempoTranscurrido = stopwatch.Elapsed;
-                    tiempoP[e] = tiempoTranscurrido.ToString("hh':'mm':'ss'.'fff");
+                    tiempoP[k] = tiempoTranscurrido.ToString("hh'\t:'mm'\t:'ss'\t:'fff");
+                    break;
                 }
             }
         }

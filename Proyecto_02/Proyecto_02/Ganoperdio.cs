@@ -9,13 +9,14 @@ namespace Proyecto_02
 {
     class Ganoperdio
     {
-        public static string piezaganador = "■";
+        public static string piezaganador = "█";
         public static void comprobar()
         {
             rectarriba();
             rectahorizontal();
             diagonal();
             reversadiagonal();
+            Tabla.tablamostrar();
         }
         public static void rectarriba()
         {
@@ -28,10 +29,13 @@ namespace Proyecto_02
                         if (Tabla.tabla[e, i].Contains(Jugadorvs.piezactual) && Tabla.tabla[e - 1, i].Contains(Jugadorvs.piezactual)
                             && Tabla.tabla[e - 2, i].Contains(Jugadorvs.piezactual) && Tabla.tabla[e - 3, i].Contains(Jugadorvs.piezactual))
                         {
-                            Tabla.tabla[e, i] = Tabla.tabla[e, i].Replace(Jugadorvs.piezactual, piezaganador);
-                            Tabla.tabla[e-1, i] = Tabla.tabla[e, i].Replace(Jugadorvs.piezactual, piezaganador);
-                            Tabla.tabla[e-2, i] = Tabla.tabla[e, i].Replace(Jugadorvs.piezactual, piezaganador);
-                            Tabla.tabla[e-3, i] = Tabla.tabla[e, i].Replace(Jugadorvs.piezactual, piezaganador);
+                            visualizacion.tiempofinal();
+                            for (int j = 0; j < 4; j++)
+                            {
+                                Tabla.tabla[e, i] = Tabla.tabla[e, i].Replace(Jugadorvs.piezactual, piezaganador);
+                                e--;
+                            }
+
                             Conecta4.ganador = true;
                             Tabla.tablamostrar();
                             if (Jugadorvs.piezactual == Jugadorvs.jugador1)
@@ -58,7 +62,6 @@ namespace Proyecto_02
                     }
                 }
             }
-            Tabla.tablamostrar();
         }
 
         public static void rectahorizontal()
@@ -72,6 +75,12 @@ namespace Proyecto_02
                         if (Tabla.tabla[e, i].Contains(Jugadorvs.piezactual) && Tabla.tabla[e, i + 1].Contains(Jugadorvs.piezactual)
                             && Tabla.tabla[e, i + 2].Contains(Jugadorvs.piezactual) && Tabla.tabla[e, i + 3].Contains(Jugadorvs.piezactual))
                         {
+                            visualizacion.tiempofinal();
+                            for (int j = 0; j < 4; j++)
+                            {
+                                Tabla.tabla[e, i] = Tabla.tabla[e, i].Replace(Jugadorvs.piezactual, piezaganador);
+                                i++;
+                            }
                             Conecta4.ganador = true;
                             Tabla.tablamostrar();
                             if (Jugadorvs.piezactual == Jugadorvs.jugador1)
@@ -98,7 +107,6 @@ namespace Proyecto_02
                     }
                 }
             }
-            Tabla.tablamostrar();
         }
         public static void diagonal()
         {
@@ -111,6 +119,12 @@ namespace Proyecto_02
                         if (Tabla.tabla[e, i].Contains(Jugadorvs.piezactual) && Tabla.tabla[e - 1, i + 1].Contains(Jugadorvs.piezactual)
                             && Tabla.tabla[e - 2, i + 2].Contains(Jugadorvs.piezactual) && Tabla.tabla[e - 3, i + 3].Contains(Jugadorvs.piezactual))
                         {
+                            visualizacion.tiempofinal();
+                            for (int j = 0; j < 4; j++)
+                            {
+                                Tabla.tabla[e, i] = Tabla.tabla[e, i].Replace(Jugadorvs.piezactual, piezaganador);
+                                i++; e--;
+                            }
                             Conecta4.ganador = true;
                             Tabla.tablamostrar();
                             if (Jugadorvs.piezactual == Jugadorvs.jugador1)
@@ -137,7 +151,6 @@ namespace Proyecto_02
                     }
                 }
             }
-            Tabla.tablamostrar();
         }
         public static void reversadiagonal()
         {
@@ -150,6 +163,12 @@ namespace Proyecto_02
                         if (Tabla.tabla[e, i].Contains(Jugadorvs.piezactual) && Tabla.tabla[e + 1, i + 1].Contains(Jugadorvs.piezactual)
                             && Tabla.tabla[e + 2, i + 2].Contains(Jugadorvs.piezactual) && Tabla.tabla[e + 3, i + 3].Contains(Jugadorvs.piezactual))
                         {
+                            visualizacion.tiempofinal();
+                            for (int j = 0; j < 4; j++)
+                            {
+                                Tabla.tabla[e, i] = Tabla.tabla[e, i].Replace(Jugadorvs.piezactual, piezaganador);
+                                i++; e++;
+                            }
                             Conecta4.ganador = true;
                             Tabla.tablamostrar();
                             if (Jugadorvs.piezactual == Jugadorvs.jugador1)
@@ -177,7 +196,6 @@ namespace Proyecto_02
                 }
             }
 
-            Tabla.tablamostrar();
         }
     }
 }
