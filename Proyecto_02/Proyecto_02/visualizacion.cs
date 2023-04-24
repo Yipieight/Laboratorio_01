@@ -33,7 +33,7 @@ namespace Proyecto_02
         }
         public static void mostrarturnoj2()
         {
-            Console.SetCursorPosition(24, 2);
+            Console.SetCursorPosition(24, 1);
             Console.WriteLine("TURNO DE:\n");
             Console.SetCursorPosition(25, 3);
             Console.Write("  █ ▀█");

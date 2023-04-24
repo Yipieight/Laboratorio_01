@@ -43,7 +43,7 @@ namespace Proyecto_02
                 Console.WriteLine("Ingrese el nombre del segundo jugador (J2)");
                 nombreactual[1] = Console.ReadLine();
             }
-            else
+            else if (Conecta4.opciondejuego == "2")
             {
                 Console.WriteLine("Ingrese el nombre del primer jugador (J1)");
                 nombreactual[0] = Console.ReadLine();

@@ -9,6 +9,7 @@ namespace Proyecto_02
 {
     internal class Conecta4
     {
+        public static int contadorpartidas = 1;
         public static string denuevo = "";
         public static string opciondejuego;
         public static bool ganador = false;
@@ -21,7 +22,9 @@ namespace Proyecto_02
                 Console.WriteLine("¿De que forma quiere jugar conecta 4? \n");
                 Console.WriteLine("1. Jugador vs Jugador");
                 Console.WriteLine(("2. Jugador vs Computadora"));
-                Console.WriteLine("3. Salir");
+                Console.WriteLine(("3. Instrucciones del juego"));
+                Console.WriteLine(("4. Historial de partidas"));
+                Console.WriteLine("5. Salir");
                 opciondejuego = Console.ReadLine();
                 if (opciondejuego == "1")
                 {
