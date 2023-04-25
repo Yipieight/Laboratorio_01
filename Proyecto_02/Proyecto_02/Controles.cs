@@ -48,6 +48,8 @@ namespace Proyecto_02
                 }
             }
             while (tecla.Key != ConsoleKey.Enter);
+            subindice += 1;
+
         }
     }
 }

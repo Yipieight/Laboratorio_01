@@ -18,7 +18,6 @@ namespace Proyecto_02
         public static int columna = 0;
         public static void colocarpieza()
         {
-            Ganoperdio.tiempoinicial();
             Console.WriteLine("Ingrese en que columna desea colocar una ficha en la tabla");
             columna = int.Parse(Console.ReadLine());
             Tabla.tablacolocar();
@@ -49,29 +48,15 @@ namespace Proyecto_02
         }
         public static void nombrejugadores()
         {
-            //Console.Clear();
-            //if(Conecta4.opciondejuego == "1")
-            //{
-            //    Console.WriteLine("Ingrese el nombre del primer jugador (J1)");
-            //    nombreactual[0] = Console.ReadLine();
-            //    Console.WriteLine("Ingrese el nombre del segundo jugador (J2)");
-            //    nombreactual[1] = Console.ReadLine();
-            //}
-            //else if (Conecta4.opciondejuego == "2")
-            //{
-            //    Console.WriteLine("Ingrese el nombre del primer jugador (J1)");
-            //    nombreactual[0] = Console.ReadLine();
-            //    nombreactual[1] = "COMPUTADORA";
-            //}
             Console.Clear();
-            if (Controles.subindice+1 == 1)
+            if (Controles.subindice == 1)
             {
                 Console.WriteLine("Ingrese el nombre del primer jugador (J1)");
                 nombreactual[0] = Console.ReadLine();
                 Console.WriteLine("Ingrese el nombre del segundo jugador (J2)");
                 nombreactual[1] = Console.ReadLine();
             }
-            else if (Controles.subindice+1 == 2)
+            else if (Controles.subindice == 2)
             {
                 Console.WriteLine("Ingrese el nombre del primer jugador (J1)");
                 nombreactual[0] = Console.ReadLine();

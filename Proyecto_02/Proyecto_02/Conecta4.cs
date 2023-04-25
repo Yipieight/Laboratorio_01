@@ -28,21 +28,24 @@ namespace Proyecto_02
                 Console.WriteLine(("4. Historial de partidas"));
                 Console.WriteLine("5. Salir \n");
                 Controles.controles();
-                switch (Controles.subindice+1)
+                switch (Controles.subindice)
                 {
                     case 1:
+                        Ganoperdio.tiempoinicial();
                         Tabla.tablacrear();
                         ganador = false;
                         Jugadorvs.nombrejugadores();
                         Tabla.tablamostrar();
                         while (ganador != true)
                         {
+
                             Jugadorvs.jugador1o2();
                             Ganoperdio.comprobar();
                         }
                         contadorpartidas++;
                         break;
                     case 2:
+                        Ganoperdio.tiempoinicial();
                         Tabla.tablacrear();
                         ganador = false;
                         Jugadorvs.nombrejugadores();
@@ -53,9 +56,12 @@ namespace Proyecto_02
                             Ganoperdio.comprobar();
                         }
                         break;
+                    case 4:
+                        Historialdepartida.mostrarhistorialdepartida();
+                        break;
                 }
             }
-            while(Controles.subindice+1 != 5);
+            while(Controles.subindice != 5);
         }
 
         public static void jugardenuevo()

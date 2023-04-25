@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Diagnostics;
+using System.ComponentModel;
 
 namespace Proyecto_02
 {
@@ -34,7 +35,6 @@ namespace Proyecto_02
                         if (Tabla.tabla[e, i].Contains(Jugadorvs.piezactual) && Tabla.tabla[e - 1, i].Contains(Jugadorvs.piezactual)
                             && Tabla.tabla[e - 2, i].Contains(Jugadorvs.piezactual) && Tabla.tabla[e - 3, i].Contains(Jugadorvs.piezactual))
                         {
-                            tiempofinal();
                             for (int j = 0; j < 4; j++)
                             {
                                 Tabla.tabla[e, i] = Tabla.tabla[e, i].Replace(Jugadorvs.piezactual, piezaganador);
@@ -81,7 +81,6 @@ namespace Proyecto_02
                         if (Tabla.tabla[e, i].Contains(Jugadorvs.piezactual) && Tabla.tabla[e, i + 1].Contains(Jugadorvs.piezactual)
                             && Tabla.tabla[e, i + 2].Contains(Jugadorvs.piezactual) && Tabla.tabla[e, i + 3].Contains(Jugadorvs.piezactual))
                         {
-                            tiempofinal();
                             for (int j = 0; j < 4; j++)
                             {
                                 Tabla.tabla[e, i] = Tabla.tabla[e, i].Replace(Jugadorvs.piezactual, piezaganador);
@@ -93,11 +92,13 @@ namespace Proyecto_02
                             {
                                 visualizacion.ganador();
                                 Console.Write("\n¡El jugador " + Jugadorvs.nombreactual[0] + " (J1) es el ganador!");
+                                guardarpartida(Jugadorvs.nombreactual[0], tiempofinal(), Jugadorvs.turnosporjugador[0]);
                             }
                             else if (Jugadorvs.piezactual == Jugadorvs.jugador2)
                             {
                                 visualizacion.ganador();
                                 Console.WriteLine("\n¡El jugador " + Jugadorvs.nombreactual[1] + " (J2) es el ganador!");
+                                guardarpartida(Jugadorvs.nombreactual[1], tiempofinal(), Jugadorvs.turnosporjugador[1]);
                             }
                             else
                             {
@@ -125,7 +126,6 @@ namespace Proyecto_02
                         if (Tabla.tabla[e, i].Contains(Jugadorvs.piezactual) && Tabla.tabla[e - 1, i + 1].Contains(Jugadorvs.piezactual)
                             && Tabla.tabla[e - 2, i + 2].Contains(Jugadorvs.piezactual) && Tabla.tabla[e - 3, i + 3].Contains(Jugadorvs.piezactual))
                         {
-                            tiempofinal();
                             for (int j = 0; j < 4; j++)
                             {
                                 Tabla.tabla[e, i] = Tabla.tabla[e, i].Replace(Jugadorvs.piezactual, piezaganador);
@@ -137,11 +137,13 @@ namespace Proyecto_02
                             {
                                 visualizacion.ganador();
                                 Console.Write("\n¡El jugador " + Jugadorvs.nombreactual[0] + " (J1) es el ganador!");
+                                guardarpartida(Jugadorvs.nombreactual[0], tiempofinal(), Jugadorvs.turnosporjugador[0]);
                             }
                             else if (Jugadorvs.piezactual == Jugadorvs.jugador2)
                             {
                                 visualizacion.ganador();
                                 Console.WriteLine("\n¡El jugador " + Jugadorvs.nombreactual[1] + " (J2) es el ganador!");
+                                guardarpartida(Jugadorvs.nombreactual[1], tiempofinal(), Jugadorvs.turnosporjugador[1]);
                             }
                             else
                             {
@@ -149,6 +151,10 @@ namespace Proyecto_02
                                 Console.WriteLine("¡La COMPUTADORA es el ganador!");
                             }
                             Console.ReadKey();
+                        }
+                        else if (e == 0)
+                        {
+
                         }
                     }
                     catch
@@ -169,7 +175,6 @@ namespace Proyecto_02
                         if (Tabla.tabla[e, i].Contains(Jugadorvs.piezactual) && Tabla.tabla[e + 1, i + 1].Contains(Jugadorvs.piezactual)
                             && Tabla.tabla[e + 2, i + 2].Contains(Jugadorvs.piezactual) && Tabla.tabla[e + 3, i + 3].Contains(Jugadorvs.piezactual))
                         {
-                            tiempofinal();
                             for (int j = 0; j < 4; j++)
                             {
                                 Tabla.tabla[e, i] = Tabla.tabla[e, i].Replace(Jugadorvs.piezactual, piezaganador);
@@ -212,6 +217,7 @@ namespace Proyecto_02
 
         public static void tiempoinicial()
         {
+            stopwatch = new Stopwatch();
             stopwatch.Start();
         }
 
@@ -229,8 +235,9 @@ namespace Proyecto_02
             return numero;
         }
         public static void guardarpartida(string ganador,string tiempo, int turnos)
-        {
-            historialganador[ultimonumero()] = ganador + " | " + turnos + " | " + tiempo; 
+        {                                                                   
+            historialganador[ultimonumero()] = Conecta4.contadorpartidas + "       " + ganador + "       " + turnos + "       " + tiempo;
+            Historialdepartida.guardarhistorialdepartida(historialganador[ultimonumero()]);
         }
     }
 }

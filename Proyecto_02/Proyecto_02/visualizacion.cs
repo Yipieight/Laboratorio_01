@@ -12,8 +12,6 @@ namespace Proyecto_02
     class visualizacion
     {
         public static int[] posicionac = new int[2];
-        
-        //public static string[] tiempoP = new string[10] {"","","","","","","","","",""};
         public static void posicionactual()
         {
             posicionac[0] = Console.CursorLeft;
@@ -111,6 +109,20 @@ namespace Proyecto_02
                 Console.Write(new string(' ', Console.WindowWidth));
             }
             while (!Console.KeyAvailable);
+        }
+
+        public static void ganadores()
+        {
+            Console.Clear();
+            Console.WriteLine("\r\n\t░██████╗░░█████╗░███╗░░██╗░█████╗░██████╗░░█████╗░██████╗░███████╗░██████╗" +
+                "\r\n\t██╔════╝░██╔══██╗████╗░██║██╔══██╗██╔══██╗██╔══██╗██╔══██╗██╔════╝██╔════╝" +
+                "\r\n\t██║░░██╗░███████║██╔██╗██║███████║██║░░██║██║░░██║██████╔╝█████╗░░╚█████╗░" +
+                "\r\n\t██║░░╚██╗██╔══██║██║╚████║██╔══██║██║░░██║██║░░██║██╔══██╗██╔══╝░░░╚═══██╗" +
+                "\r\n\t╚██████╔╝██║░░██║██║░╚███║██║░░██║██████╔╝╚█████╔╝██║░░██║███████╗██████╔╝" +
+                "\r\n\t░╚═════╝░╚═╝░░╚═╝╚═╝░░╚══╝╚═╝░░╚═╝╚═════╝░░╚════╝░╚═╝░░╚═╝╚══════╝╚═════╝░");
+
+            Console.SetCursorPosition(27,8);
+            Console.WriteLine("Partida | Usuario | Turnos | Tiempo");
         }
         
     }
