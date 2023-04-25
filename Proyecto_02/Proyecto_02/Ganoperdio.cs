@@ -235,8 +235,25 @@ namespace Proyecto_02
             return numero;
         }
         public static void guardarpartida(string ganador,string tiempo, int turnos)
-        {                                                                   
-            historialganador[ultimonumero()] = Conecta4.contadorpartidas + "       " + ganador + "       " + turnos + "       " + tiempo;
+        {
+            Jugadorvs.turnosporjugador[0] = 0;
+            Jugadorvs.turnosporjugador[1] = 0;
+            string partidasstring = "";
+            string turnosstring = "";
+            if (Conecta4.contadorpartidas < 10)
+            {
+                int partidasint = Conecta4.contadorpartidas + 1;
+                partidasstring = "0" + partidasint;
+            }
+            else
+            {
+                partidasstring = "" + Conecta4.contadorpartidas;
+            }
+            if (turnos < 10)
+            {
+                turnosstring = "0" + turnos; 
+            }
+            historialganador[ultimonumero()] = partidasstring + "       " + ganador + "       " + turnosstring + "      " + tiempo;
             Historialdepartida.guardarhistorialdepartida(historialganador[ultimonumero()]);
         }
     }

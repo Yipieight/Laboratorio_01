@@ -10,7 +10,7 @@ namespace Proyecto_02
 {
     class Jugadorvs
     {
-        public static int[] turnosporjugador = new int[2] {0,0};
+        public static int[] turnosporjugador = new int[2] { 0, 0 };
         public static string[] nombreactual = new string[2];
         public static string piezactual = "";
         public static string jugador1 = "♦";
@@ -21,6 +21,25 @@ namespace Proyecto_02
             Console.WriteLine("Ingrese en que columna desea colocar una ficha en la tabla");
             columna = int.Parse(Console.ReadLine());
             Tabla.tablacolocar();
+        }
+        public static string[,] piezas = new string[2, 5] { { " ♣ ", " ♠ " ," ♥ "," ☻ "," ◘ "},{" ♫ "," ☺ "," ♦ ","•","♪" } };
+
+        public static void mostrarpiezas()
+        {
+            for(int i = 0; i < 2; i++)
+            {
+                for(int e = 0;e < 5; e++)
+                {
+                    Console.Write(piezas[i,e]);
+                }
+                Console.WriteLine();
+            }
+            Console.ReadKey();
+        }
+        public static void colocarpieza1()
+        {
+            Console.WriteLine("Escoque una pieza para jugar");
+            mostrarpiezas();
         }
         public static void jugador1o2()
         {
@@ -63,6 +82,11 @@ namespace Proyecto_02
                 nombreactual[1] = "COMPUTADORA";
             }
 
+        }
+        public static void nombrej1()
+        {
+            Console.WriteLine("Ingrese el nombre del primer jugador (J1)");
+            nombreactual[0] = Console.ReadLine();
         }
         
     }

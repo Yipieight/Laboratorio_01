@@ -17,9 +17,10 @@ namespace Proyecto_02
         {
             Console.CursorVisible = false;
             visualizacion.bienvenida();
+            Historialdepartida.crearpartidasguardadas();
             do
             {
-                Console.Clear();
+                Jugadorvs.colocarpieza1();
                 Console.Clear();
                 Console.WriteLine("¿De que forma quiere jugar conecta 4? \n");
                 Console.WriteLine("1. Jugador vs Jugador");
@@ -27,7 +28,7 @@ namespace Proyecto_02
                 Console.WriteLine(("3. Instrucciones del juego"));
                 Console.WriteLine(("4. Historial de partidas"));
                 Console.WriteLine("5. Salir \n");
-                Controles.controles();
+                Controles.controlesmenu();
                 switch (Controles.subindice)
                 {
                     case 1:
