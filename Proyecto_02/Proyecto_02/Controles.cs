@@ -51,36 +51,44 @@ namespace Proyecto_02
             subindice += 1;
         }
 
-        public static string[,] piezas = new string[2, 4] { { "♣","♠","♥","♦"}, {"X","O","@","#"} };
+        public static string[,] piezas = new string[2, 4] { { "[♣]","♠","♥","♦"}, {"X","O","@","#"} };
         public static void controlespieza()
         {
             string flechaiz = "[";
             string flechade = "]";
             int columna = 0;
             int fila = 0;
-            int posicionx = 0;
-            int posiciony = 2;
-            Console.SetCursorPosition(fila, posicion);
             do
             {
                 Jugadorvs.mostrarpiezas();
                 tecla = Console.ReadKey(true);
-                if (tecla.Key == ConsoleKey.UpArrow && 2 != posicion)
+                if (tecla.Key == ConsoleKey.UpArrow && 0 != fila)
                 {
-                    piezas[fila, subindice] = flechaiz.Insert(0, piezas[fila, subindice]);
-                    piezas[fila, subindice] = flechade.Insert(piezas[fila,subindice].Length, piezas[fila, subindice]);
-                    
+                    piezas[fila,columna] = piezas[fila, columna].Replace(flechaiz,"").Replace(flechade,"");
+                    fila -= 1;
+                    piezas[fila, columna] = piezas[fila, columna].Insert(0, flechaiz).Insert(piezas[fila,columna].Length+1,flechade);
+
                 }
-                else if (tecla.Key == ConsoleKey.DownArrow && 6 != posicion)
+                else if (tecla.Key == ConsoleKey.DownArrow && 1 != fila)
                 {
-                    Console.SetCursorPosition(fila, posicion);
-                    posicion += 1;
-                    subindice += 1;
-                    Console.SetCursorPosition(fila, posicion);
+                    piezas[fila, columna] = piezas[fila, columna].Replace(flechaiz, "").Replace(flechade, "");
+                    fila += 1;
+                    piezas[fila, columna] = piezas[fila, columna].Insert(0, flechaiz).Insert(piezas[fila, columna].Length+1, flechade);
+                }
+                else if(tecla.Key == ConsoleKey.RightArrow && 3 != columna)
+                {
+                    piezas[fila, columna] = piezas[fila, columna].Replace(flechaiz, "").Replace(flechade, "");
+                    columna += 1;
+                    piezas[fila, columna] = piezas[fila, columna].Insert(0, flechaiz).Insert(piezas[fila, columna].Length + 1, flechade);
+                }
+                else if(tecla.Key == ConsoleKey.LeftArrow && 0 != columna)
+                {
+                    piezas[fila, columna] = piezas[fila, columna].Replace(flechaiz, "").Replace(flechade, "");
+                    columna -= 1;
+                    piezas[fila, columna] = piezas[fila, columna].Insert(0, flechaiz).Insert(piezas[fila, columna].Length + 1, flechade);
                 }
             }
             while (tecla.Key != ConsoleKey.Enter);
-            subindice += 1;
         }
     }
 }

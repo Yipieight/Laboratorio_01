@@ -26,16 +26,24 @@ namespace Proyecto_02
 
         public static void mostrarpiezas()
         {
-            Console.Write("");
+            Console.Clear();
+            Console.Write("\r\n██████╗░██╗███████╗███████╗░█████╗░░██████╗" +
+                "\r\n██╔══██╗██║██╔════╝╚════██║██╔══██╗██╔════╝" +
+                "\r\n██████╔╝██║█████╗░░░░███╔═╝███████║╚█████╗░" +
+                "\r\n██╔═══╝░██║██╔══╝░░██╔══╝░░██╔══██║░╚═══██╗" +
+                "\r\n██║░░░░░██║███████╗███████╗██║░░██║██████╔╝" +
+                "\r\n╚═╝░░░░░╚═╝╚══════╝╚══════╝╚═╝░░╚═╝╚═════╝░" +
+                "\r\n═══════════════════════════════════════════");
+            Console.WriteLine("\nColoque una pieza para el jugador...\n\n");
+
             for(int i = 0; i < 2; i++)
             {
                 for(int e = 0;e < 4; e++)
                 {
-                    Console.Write(Controles.piezas[i,e]);
+                    Console.Write("\t" + Controles.piezas[i,e]);
                 }
                 Console.WriteLine();
             }
-            Console.ReadKey();
         }
         public static void colocarpieza1()
         {

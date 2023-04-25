@@ -46,13 +46,13 @@ namespace Proyecto_02
                             {
                                 visualizacion.ganador();
                                 Console.Write("\n¡El jugador " + Jugadorvs.nombreactual[0] + " (J1) es el ganador!");
-                                guardarpartida(Jugadorvs.nombreactual[0], tiempofinal(), Jugadorvs.turnosporjugador[0]);
+                                guardarpartida(Jugadorvs.nombreactual[0], tiempofinal(), Jugadorvs.turnosporjugador[0], Conecta4.mododejuego[Controles.subindice - 1]);
                             }
                             else if (Jugadorvs.piezactual == Jugadorvs.jugador2)
                             {
                                 visualizacion.ganador();
                                 Console.WriteLine("\n¡El jugador " + Jugadorvs.nombreactual[1] + " (J2) es el ganador!");
-                                guardarpartida(Jugadorvs.nombreactual[1], tiempofinal(), Jugadorvs.turnosporjugador[1]);
+                                guardarpartida(Jugadorvs.nombreactual[1], tiempofinal(), Jugadorvs.turnosporjugador[1], Conecta4.mododejuego[Controles.subindice - 1]);
                             }
                             else
                             {
@@ -92,13 +92,13 @@ namespace Proyecto_02
                             {
                                 visualizacion.ganador();
                                 Console.Write("\n¡El jugador " + Jugadorvs.nombreactual[0] + " (J1) es el ganador!");
-                                guardarpartida(Jugadorvs.nombreactual[0], tiempofinal(), Jugadorvs.turnosporjugador[0]);
+                                guardarpartida(Jugadorvs.nombreactual[0], tiempofinal(), Jugadorvs.turnosporjugador[0], Conecta4.mododejuego[Controles.subindice - 1]);
                             }
                             else if (Jugadorvs.piezactual == Jugadorvs.jugador2)
                             {
                                 visualizacion.ganador();
                                 Console.WriteLine("\n¡El jugador " + Jugadorvs.nombreactual[1] + " (J2) es el ganador!");
-                                guardarpartida(Jugadorvs.nombreactual[1], tiempofinal(), Jugadorvs.turnosporjugador[1]);
+                                guardarpartida(Jugadorvs.nombreactual[1], tiempofinal(), Jugadorvs.turnosporjugador[1], Conecta4.mododejuego[Controles.subindice - 1]);
                             }
                             else
                             {
@@ -137,13 +137,13 @@ namespace Proyecto_02
                             {
                                 visualizacion.ganador();
                                 Console.Write("\n¡El jugador " + Jugadorvs.nombreactual[0] + " (J1) es el ganador!");
-                                guardarpartida(Jugadorvs.nombreactual[0], tiempofinal(), Jugadorvs.turnosporjugador[0]);
+                                guardarpartida(Jugadorvs.nombreactual[0], tiempofinal(), Jugadorvs.turnosporjugador[0], Conecta4.mododejuego[Controles.subindice - 1]);
                             }
                             else if (Jugadorvs.piezactual == Jugadorvs.jugador2)
                             {
                                 visualizacion.ganador();
                                 Console.WriteLine("\n¡El jugador " + Jugadorvs.nombreactual[1] + " (J2) es el ganador!");
-                                guardarpartida(Jugadorvs.nombreactual[1], tiempofinal(), Jugadorvs.turnosporjugador[1]);
+                                guardarpartida(Jugadorvs.nombreactual[1], tiempofinal(), Jugadorvs.turnosporjugador[1], Conecta4.mododejuego[Controles.subindice - 1]);
                             }
                             else
                             {
@@ -186,13 +186,13 @@ namespace Proyecto_02
                             {
                                 visualizacion.ganador();
                                 Console.Write("\n¡El jugador " + Jugadorvs.nombreactual[0] + " (J1) es el ganador!");
-                                guardarpartida(Jugadorvs.nombreactual[0],tiempofinal(),Jugadorvs.turnosporjugador[0]);
+                                guardarpartida(Jugadorvs.nombreactual[0],tiempofinal(),Jugadorvs.turnosporjugador[0], Conecta4.mododejuego[Controles.subindice - 1]);
                             }
                             else if (Jugadorvs.piezactual == Jugadorvs.jugador2)
                             {
                                 visualizacion.ganador();
                                 Console.Write("\n¡El jugador " + Jugadorvs.nombreactual[1] + " (J2) es el ganador!");
-                                guardarpartida(Jugadorvs.nombreactual[1], tiempofinal(), Jugadorvs.turnosporjugador[1]);
+                                guardarpartida(Jugadorvs.nombreactual[1], tiempofinal(), Jugadorvs.turnosporjugador[1], Conecta4.mododejuego[Controles.subindice-1]);
                             }
                             else
                             {
@@ -234,7 +234,7 @@ namespace Proyecto_02
             numero = Jugadorvs.columna % 10;
             return numero;
         }
-        public static void guardarpartida(string ganador,string tiempo, int turnos)
+        public static void guardarpartida(string ganador,string tiempo, int turnos, string mododejuego)
         {
             Jugadorvs.turnosporjugador[0] = 0;
             Jugadorvs.turnosporjugador[1] = 0;
@@ -253,7 +253,7 @@ namespace Proyecto_02
             {
                 turnosstring = "0" + turnos; 
             }
-            historialganador[ultimonumero()] = partidasstring + "       " + ganador + "       " + turnosstring + "      " + tiempo;
+            historialganador[ultimonumero()] = partidasstring + "       " + ganador + "       " + turnosstring + "         " + mododejuego+ "         " + tiempo;
             Historialdepartida.guardarhistorialdepartida(historialganador[ultimonumero()]);
         }
     }

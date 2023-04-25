@@ -31,14 +31,14 @@ namespace Proyecto_02
                 {
                     if(i < 10)
                     {
-                        Console.SetCursorPosition(29, fila);
+                        Console.SetCursorPosition(21, fila);
                         Console.WriteLine(partidasamostrar[i]);
                         Thread.Sleep(300);
                         fila += 1;
                     }
                     else if (i == 11)
                     {
-                        Console.SetCursorPosition(28, fila);
+                        Console.SetCursorPosition(20, fila);
                         Console.WriteLine("No hay partidas guardadas todavia...");
                     }
                     else
@@ -47,18 +47,13 @@ namespace Proyecto_02
                     }
 
                 }
-                //Console.WriteLine("\n\t\t\t\t      ▄▀▄     ▄▀▄" +
-                //    "\r\n\t\t\t\t     ▄█░░▀▀▀▀▀░░█▄" +
-                //    "\r\n\t\t\t\t ▄▄  █░░░░░░░░░░░█  ▄▄" +
-                //    "\r\n\t\t\t\t█▄▄█ █░░▀░░┬░░▀░░█ █▄▄█" +
-                //    "\r\n\t\t\t\t▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀");
             }
             else
             {
                 visualizacion.ganadores();
                 for (int i = 0; i < 10; i++)
                 {
-                    Console.SetCursorPosition(29, fila);
+                    Console.SetCursorPosition(21, fila);
                     Console.WriteLine(partidasamostrar[i]);
                     Thread.Sleep(300);
                     fila += 1;
@@ -71,7 +66,7 @@ namespace Proyecto_02
         {
             for(int i = 0; i < 10; i++)
             {
-                partidasamostrar[i] = "00" + "       " + "USER" + "       " + "00" + "      " + "00:00";
+                partidasamostrar[i] = "00" + "       " + "USER" + "       " + "00" + "         " + "????"+ "         " + "00:00";
             }
         }
     }

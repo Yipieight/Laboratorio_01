@@ -11,7 +11,7 @@ namespace Proyecto_02
     {
         public static int contadorpartidas = 0;
         public static string denuevo = "";
-        //public static string opciondejuego;
+        public static string[] mododejuego = new string[2] { "JvsJ", "JvsB" };
         public static bool ganador = false;
         static void Main(string[] args)
         {
@@ -20,7 +20,7 @@ namespace Proyecto_02
             Historialdepartida.crearpartidasguardadas();
             do
             {
-                Jugadorvs.colocarpieza1();
+                Controles.controlespieza();
                 Console.Clear();
                 Console.WriteLine("¿De que forma quiere jugar conecta 4? \n");
                 Console.WriteLine("1. Jugador vs Jugador");
@@ -32,14 +32,13 @@ namespace Proyecto_02
                 switch (Controles.subindice)
                 {
                     case 1:
-                        Ganoperdio.tiempoinicial();
                         Tabla.tablacrear();
                         ganador = false;
                         Jugadorvs.nombrejugadores();
                         Tabla.tablamostrar();
+                        Ganoperdio.tiempoinicial();
                         while (ganador != true)
                         {
-
                             Jugadorvs.jugador1o2();
                             Ganoperdio.comprobar();
                         }

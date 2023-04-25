@@ -121,8 +121,8 @@ namespace Proyecto_02
                 "\r\n\t╚██████╔╝██║░░██║██║░╚███║██║░░██║██████╔╝╚█████╔╝██║░░██║███████╗██████╔╝" +
                 "\r\n\t░╚═════╝░╚═╝░░╚═╝╚═╝░░╚══╝╚═╝░░╚═╝╚═════╝░░╚════╝░╚═╝░░╚═╝╚══════╝╚═════╝░");
 
-            Console.SetCursorPosition(27,8);
-            Console.WriteLine("Partida | Usuario | Turnos | Tiempo");
+            Console.SetCursorPosition(19,8);
+            Console.WriteLine("Partida | Usuario | Turnos | Modo de juego | Tiempo");
         }
         
     }
