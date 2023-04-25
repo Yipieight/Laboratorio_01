@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controles.cs" />
     <Compile Include="Ganoperdio.cs" />
     <Compile Include="Jugadorvs.cs" />
     <Compile Include="Conecta4.cs" />

@@ -9,48 +9,53 @@ namespace Proyecto_02
 {
     internal class Conecta4
     {
-        public static int contadorpartidas = 1;
+        public static int contadorpartidas = 0;
         public static string denuevo = "";
-        public static string opciondejuego;
+        //public static string opciondejuego;
         public static bool ganador = false;
         static void Main(string[] args)
         {
+            Console.CursorVisible = false;
             visualizacion.bienvenida();
             do
             {
+                Console.Clear();
                 Console.Clear();
                 Console.WriteLine("¿De que forma quiere jugar conecta 4? \n");
                 Console.WriteLine("1. Jugador vs Jugador");
                 Console.WriteLine(("2. Jugador vs Computadora"));
                 Console.WriteLine(("3. Instrucciones del juego"));
                 Console.WriteLine(("4. Historial de partidas"));
-                Console.WriteLine("5. Salir");
-                opciondejuego = Console.ReadLine();
-                if (opciondejuego == "1")
+                Console.WriteLine("5. Salir \n");
+                Controles.controles();
+                switch (Controles.subindice+1)
                 {
-                    Tabla.tablacrear();
-                    ganador = false;
-                    Jugadorvs.nombrejugadores();
-                    Tabla.tablamostrar();
-                    while (ganador != true)
-                    {
-                        Jugadorvs.jugador1o2();
-                        Ganoperdio.comprobar();
-                    }
-                }
-                else if (opciondejuego == "2")
-                {
-                    ganador = false;
-                    Jugadorvs.nombrejugadores();
-                    Tabla.tablamostrar();
-                    while (ganador != true)
-                    {
-                        Jugadorvs.jugador1o2();
-                        Ganoperdio.comprobar();
-                    }
+                    case 1:
+                        Tabla.tablacrear();
+                        ganador = false;
+                        Jugadorvs.nombrejugadores();
+                        Tabla.tablamostrar();
+                        while (ganador != true)
+                        {
+                            Jugadorvs.jugador1o2();
+                            Ganoperdio.comprobar();
+                        }
+                        contadorpartidas++;
+                        break;
+                    case 2:
+                        Tabla.tablacrear();
+                        ganador = false;
+                        Jugadorvs.nombrejugadores();
+                        Tabla.tablamostrar();
+                        while (ganador != true)
+                        {
+                            Jugadorvs.jugador1o2();
+                            Ganoperdio.comprobar();
+                        }
+                        break;
                 }
             }
-            while(opciondejuego != "3");
+            while(Controles.subindice+1 != 5);
         }
 
         public static void jugardenuevo()

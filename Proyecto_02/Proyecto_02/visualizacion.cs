@@ -12,8 +12,8 @@ namespace Proyecto_02
     class visualizacion
     {
         public static int[] posicionac = new int[2];
-        public static Stopwatch stopwatch = new Stopwatch();
-        public static string[] tiempoP = new string[10] {"","","","","","","","","",""};
+        
+        //public static string[] tiempoP = new string[10] {"","","","","","","","","",""};
         public static void posicionactual()
         {
             posicionac[0] = Console.CursorLeft;
@@ -45,12 +45,12 @@ namespace Proyecto_02
 
         public static void mostrarturnobot()
         {
-            Console.SetCursorPosition(24, 2);
+            Console.SetCursorPosition(24, 1);
             Console.WriteLine("TURNO DE:\n");
-            Console.SetCursorPosition(25, 3);
+            Console.SetCursorPosition(23, 3);
             Console.Write("█▄▄ █▀█ ▀█▀");
             Console.Write("  (" + Jugadorvs.nombreactual[1] + ")");
-            Console.SetCursorPosition(25, 4);
+            Console.SetCursorPosition(23, 4);
             Console.Write("█▄█ █▄█  █");
             Console.SetCursorPosition(posicionac[0], posicionac[1]);
         }
@@ -65,9 +65,13 @@ namespace Proyecto_02
             {
                 visualizacion.mostrarturnoj1();
             }
-            else
+            else if(Jugadorvs.nombreactual[1] != "COMPUTADORA")
             {
                 visualizacion.mostrarturnoj2();
+            }
+            else
+            {
+                visualizacion.mostrarturnobot();
             }
         }
 
@@ -108,22 +112,6 @@ namespace Proyecto_02
             }
             while (!Console.KeyAvailable);
         }
-        public static void tiempoinicial()
-        {
-            stopwatch.Start();
-        }
-        public static void tiempofinal()
-        {
-            stopwatch.Stop();
-            for (int k = 0; k < 10; k++)
-            {
-                if (!tiempoP[k].Contains(":"))
-                {
-                    TimeSpan tiempoTranscurrido = stopwatch.Elapsed;
-                    tiempoP[k] = tiempoTranscurrido.ToString("hh'\t:'mm'\t:'ss'\t:'fff");
-                    break;
-                }
-            }
-        }
+        
     }
 }
