@@ -50,38 +50,33 @@ namespace Proyecto_02
             while (tecla.Key != ConsoleKey.Enter);
             subindice += 1;
         }
+
+        public static string[,] piezas = new string[2, 4] { { "♣","♠","♥","♦"}, {"X","O","@","#"} };
         public static void controlespieza()
         {
+            string flechaiz = "[";
+            string flechade = "]";
+            int columna = 0;
             int fila = 0;
-            string[] flecha = new string[5] { "◄", " ", " ", " ", " " };
-            subindice = 0;
-            int posicion = 2;
+            int posicionx = 0;
+            int posiciony = 2;
             Console.SetCursorPosition(fila, posicion);
-            Console.Write(flecha[subindice]);
             do
             {
+                Jugadorvs.mostrarpiezas();
                 tecla = Console.ReadKey(true);
                 if (tecla.Key == ConsoleKey.UpArrow && 2 != posicion)
                 {
-                    flecha[subindice] = flecha[subindice].Replace("◄", " ");
-                    Console.SetCursorPosition(fila, posicion);
-                    Console.Write(flecha[subindice]);
-                    posicion -= 1;
-                    subindice -= 1;
-                    Console.SetCursorPosition(fila, posicion);
-                    flecha[subindice] = flecha[subindice].Replace(" ","◄");
-                    Console.Write(flecha[subindice]);
+                    piezas[fila, subindice] = flechaiz.Insert(0, piezas[fila, subindice]);
+                    piezas[fila, subindice] = flechade.Insert(piezas[fila,subindice].Length, piezas[fila, subindice]);
+                    
                 }
                 else if (tecla.Key == ConsoleKey.DownArrow && 6 != posicion)
                 {
-                    flecha[subindice] = flecha[subindice].Replace("◄", " ");
                     Console.SetCursorPosition(fila, posicion);
-                    Console.Write(flecha[subindice]);
                     posicion += 1;
                     subindice += 1;
                     Console.SetCursorPosition(fila, posicion);
-                    flecha[subindice] = flecha[subindice].Replace(" ", "◄");
-                    Console.Write(flecha[subindice]);
                 }
             }
             while (tecla.Key != ConsoleKey.Enter);

@@ -22,15 +22,16 @@ namespace Proyecto_02
             columna = int.Parse(Console.ReadLine());
             Tabla.tablacolocar();
         }
-        public static string[,] piezas = new string[2, 5] { { " ♣ ", " ♠ " ," ♥ "," ☻ "," ◘ "},{" ♫ "," ☺ "," ♦ ","•","♪" } };
+                                                                                                                     
 
         public static void mostrarpiezas()
         {
+            Console.Write("");
             for(int i = 0; i < 2; i++)
             {
-                for(int e = 0;e < 5; e++)
+                for(int e = 0;e < 4; e++)
                 {
-                    Console.Write(piezas[i,e]);
+                    Console.Write(Controles.piezas[i,e]);
                 }
                 Console.WriteLine();
             }
