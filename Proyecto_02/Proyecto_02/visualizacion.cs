@@ -63,7 +63,7 @@ namespace Proyecto_02
             {
                 visualizacion.mostrarturnoj1();
             }
-            else if(Jugadorvs.nombreactual[1] != "COMPUTADORA")
+            else if(Jugadorvs.nombreactual[1] != "CPU1")
             {
                 visualizacion.mostrarturnoj2();
             }
@@ -123,6 +123,33 @@ namespace Proyecto_02
 
             Console.SetCursorPosition(19,8);
             Console.WriteLine("Partida | Usuario | Turnos | Modo de juego | Tiempo");
+        }
+
+        public static void incorrecto()
+        {
+            Console.WriteLine("\r\n\n██╗░░██╗" +
+                "\r\n╚██╗██╔╝" +
+                "\r\n░╚███╔╝░" +
+                "\r\n░██╔██╗░" +
+                "\r\n██╔╝╚██╗" +
+                "\r\n╚═╝░░╚═╝");
+        }
+        public static void vs()
+        {
+            string espacios = "\t\t\t\t\t\t    ";
+            Console.SetCursorPosition(0, 10);
+            Console.Write("\r\n"+espacios+"██╗░░░██╗░██████╗" +
+                "\r\n"+espacios+"██║░░░██║██╔════╝" +
+                "\r\n"+espacios+"╚██╗░██╔╝╚█████╗░" +
+                "\r\n"+espacios+"░╚████╔╝░░╚═══██╗" +
+                "\r\n"+espacios+"░░╚██╔╝░░██████╔╝" +
+                "\r\n"+espacios+"░░░╚═╝░░░╚═════╝░");
+        }
+
+        public static void listo() 
+        {
+            Console.WriteLine("\r\n\n█░░ █ █▀ ▀█▀ █▀█ █" +
+                "\r\n█▄▄ █ ▄█ ░█░ █▄█ ▄");
         }
         
     }

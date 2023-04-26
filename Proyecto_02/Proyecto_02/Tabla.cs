@@ -25,6 +25,11 @@ namespace Proyecto_02
         public static void tablamostrar()
         {
             Console.Clear();
+            for(int i = 0; i < 7; i++)
+            {
+                Console.Write(" "+Controles.tablaflecha[i]+" ");
+            }
+            Console.WriteLine("");
             for (int i = 0; i < tabla.GetLength(0); i++)
             {
                 for (int j = 0; j < tabla.GetLength(1); j++)
@@ -39,9 +44,10 @@ namespace Proyecto_02
             visualizacion.mostraractual();
         }
 
-        public static void tablacolocar()
+        public static void tablacolocar(int columna)
         {
-            if (tabla[0, Jugadorvs.columna].Contains(Jugadorvs.jugador1) || tabla[0, Jugadorvs.columna].Contains(Jugadorvs.jugador2))
+            Tabla.tablamostrar();
+            if (tabla[0, columna].Contains(Jugadorvs.jugador1) || tabla[0, columna].Contains(Jugadorvs.jugador2))
             {
                 Console.WriteLine("Ya se lleno la columan pruebe con otro");
                 Console.ReadKey();
@@ -50,9 +56,9 @@ namespace Proyecto_02
             {
                 for (int i = 5; i >= 0; i--)
                 {
-                    if (!(tabla[i, Jugadorvs.columna].Contains(Jugadorvs.jugador1)) && !(tabla[i, Jugadorvs.columna].Contains(Jugadorvs.jugador2)))
+                    if (!(tabla[i, columna].Contains(Jugadorvs.jugador1)) && !(tabla[i, columna].Contains(Jugadorvs.jugador2)))
                     {
-                        tabla[i, Jugadorvs.columna] = tabla[i, Jugadorvs.columna].Replace(" ", Jugadorvs.piezactual);
+                        tabla[i, columna] = tabla[i, columna].Replace(" ", Jugadorvs.piezactual);
                         break;
                     }
 

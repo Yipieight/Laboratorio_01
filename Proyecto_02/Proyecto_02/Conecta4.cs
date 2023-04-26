@@ -20,7 +20,6 @@ namespace Proyecto_02
             Historialdepartida.crearpartidasguardadas();
             do
             {
-                Controles.controlespieza();
                 Console.Clear();
                 Console.WriteLine("¿De que forma quiere jugar conecta 4? \n");
                 Console.WriteLine("1. Jugador vs Jugador");
@@ -36,6 +35,7 @@ namespace Proyecto_02
                         ganador = false;
                         Jugadorvs.nombrejugadores();
                         Tabla.tablamostrar();
+                        escojerpieza1y2();
                         Ganoperdio.tiempoinicial();
                         while (ganador != true)
                         {
@@ -45,11 +45,12 @@ namespace Proyecto_02
                         contadorpartidas++;
                         break;
                     case 2:
-                        Ganoperdio.tiempoinicial();
                         Tabla.tablacrear();
                         ganador = false;
                         Jugadorvs.nombrejugadores();
                         Tabla.tablamostrar();
+                        escojerpieza1y2();
+                        Ganoperdio.tiempoinicial();;
                         while (ganador != true)
                         {
                             Jugadorvs.jugador1o2();
@@ -69,6 +70,12 @@ namespace Proyecto_02
             Console.Clear();
             Console.WriteLine("¿Desea Jugar de nuevo? (Si/No)");
             denuevo = Console.ReadLine().ToLower();
+        }
+
+        public static void escojerpieza1y2() 
+        {
+            Jugadorvs.jugador1 = Controles.controlespieza1();
+            Jugadorvs.jugador2 = Controles.controlespieza2();
         }
 
 
