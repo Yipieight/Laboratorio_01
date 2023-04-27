@@ -58,7 +58,7 @@ namespace Proyecto_02
                             {
                                 visualizacion.ganador();
                                 Console.WriteLine("¡La CPU1 es el ganador!");
-                                guardarpartida(Jugadorvs.nombreactual[2], tiempofinal(), Jugadorvs.turnosporjugador[1], Conecta4.mododejuego[Controles.subindice - 1]);
+                                guardarpartida(Jugadorvs.nombreactual[2], tiempofinal(), Jugadorvs.turnosporjugador[2], Conecta4.mododejuego[Controles.subindice - 1]);
                             }
                             Console.ReadKey();
                         }
@@ -105,7 +105,7 @@ namespace Proyecto_02
                             {
                                 visualizacion.ganador();
                                 Console.WriteLine("¡La CPU1 es el ganador!");
-                                guardarpartida(Jugadorvs.nombreactual[2], tiempofinal(), Jugadorvs.turnosporjugador[1], Conecta4.mododejuego[Controles.subindice - 1]);
+                                guardarpartida(Jugadorvs.nombreactual[2], tiempofinal(), Jugadorvs.turnosporjugador[2], Conecta4.mododejuego[Controles.subindice - 1]);
                             }
                             Console.ReadKey();
                         }
@@ -151,7 +151,7 @@ namespace Proyecto_02
                             {
                                 visualizacion.ganador();
                                 Console.WriteLine("¡La CPU1 es el ganador!");
-                                guardarpartida(Jugadorvs.nombreactual[2], tiempofinal(), Jugadorvs.turnosporjugador[1], Conecta4.mododejuego[Controles.subindice - 1]);
+                                guardarpartida(Jugadorvs.nombreactual[2], tiempofinal(), Jugadorvs.turnosporjugador[2], Conecta4.mododejuego[Controles.subindice - 1]);
                             }
                             Console.ReadKey();
                         }
@@ -201,7 +201,7 @@ namespace Proyecto_02
                             {
                                 visualizacion.ganador();
                                 Console.Write("¡La CPU1 es el ganador!");
-                                guardarpartida(Jugadorvs.nombreactual[2], tiempofinal(), Jugadorvs.turnosporjugador[1], Conecta4.mododejuego[Controles.subindice - 1]);
+                                guardarpartida(Jugadorvs.nombreactual[2], tiempofinal(), Jugadorvs.turnosporjugador[2], Conecta4.mododejuego[Controles.subindice - 1]);
 
                             }
                             Console.ReadKey();
@@ -241,8 +241,7 @@ namespace Proyecto_02
         }
         public static void guardarpartida(string ganador,string tiempo, int turnos, string mododejuego)
         {
-            Jugadorvs.turnosporjugador[0] = 0;
-            Jugadorvs.turnosporjugador[1] = 0;
+            Jugadorvs.turnosporjugador[0] = 0; Jugadorvs.turnosporjugador[1] = 0; Jugadorvs.turnosporjugador[2] = 0;
             string partidasstring = "";
             string turnosstring = "";
             if (Conecta4.contadorpartidas < 10)
@@ -260,6 +259,9 @@ namespace Proyecto_02
             }
             historialganador[ultimonumero()] = partidasstring + "       " + ganador + "       " + turnosstring + "         " + mododejuego+ "         " + tiempo;
             Historialdepartida.guardarhistorialdepartida(historialganador[ultimonumero()]);
+            Jugadorvs.jugador1 = "";
+            Jugadorvs.jugador2 = "";
+            Conecta4.contadorpartidas++;
         }
     }
 }

@@ -27,52 +27,8 @@ namespace Proyecto_02
             //Tabla.tablacolocar();
         }
 
-        public static void mostrarpiezasj2()
-        {
-            string espacios = "\t\t\t\t\t\t\t\t\t     ";
-            Console.SetCursorPosition(0, 6);
-            Console.Write("\n\n"+espacios+ "\t\t\t  █ ▀█" +
-                "\r\n"+espacios+ "\t\t\t█▄█ █▄");
-            Console.WriteLine("\r\n"+espacios+"═══════════════════════════════════════════\n\n");
-            for (int i = 0; i < 2; i++)
-            {
-                Console.SetCursorPosition(80,13+i);
-                for (int e = 0; e < 4; e++)
-                {
-                    Console.Write("\t" + Controles.piezas1[i, e]);
-                }
-                Console.WriteLine();
-            }
-            Console.WriteLine("\r\n\n"+espacios+"═══════════════════════════════════════════");
-        }
-        public static void mostrarpiezasj1()
-        {
-            Console.Write("\n\n\t\t  █ ▄█" +
-                "\r\n\t\t█▄█  █");
-            Console.WriteLine("\r\n═══════════════════════════════════════════\n\n");
-            for (int i = 0; i < 2; i++)
-            {
-                for (int e = 0; e < 4; e++)
-                {
-                    Console.Write("\t" + Controles.piezas[i, e]);
-                }
-                Console.WriteLine();
-            }
-            Console.WriteLine("\r\n\n═══════════════════════════════════════════\"");
-        }
-        public static void mostrarpiezas()
-        {
-            Console.Clear();
-            Console.Write("\r\n\t    ███████╗░██████╗░█████╗░░█████╗░░██████╗░███████╗██████╗░  ███████╗██╗░█████╗░██╗░░██╗░█████╗░" +
-                "\r\n\t    ██╔════╝██╔════╝██╔══██╗██╔══██╗██╔════╝░██╔════╝██╔══██╗  ██╔════╝██║██╔══██╗██║░░██║██╔══██╗" +
-                "\r\n\t    █████╗░░╚█████╗░██║░░╚═╝██║░░██║██║░░██╗░█████╗░░██████╔╝  █████╗░░██║██║░░╚═╝███████║███████║" +
-                "\r\n\t    ██╔══╝░░░╚═══██╗██║░░██╗██║░░██║██║░░╚██╗██╔══╝░░██╔══██╗  ██╔══╝░░██║██║░░██╗██╔══██║██╔══██║" +
-                "\r\n\t    ███████╗██████╔╝╚█████╔╝╚█████╔╝╚██████╔╝███████╗██║░░██║  ██║░░░░░██║╚█████╔╝██║░░██║██║░░██║" +
-                "\r\n\t    ╚══════╝╚═════╝░░╚════╝░░╚════╝░░╚═════╝░╚══════╝╚═╝░░╚═╝  ╚═╝░░░░░╚═╝░╚════╝░╚═╝░░╚═╝╚═╝░░╚═╝");
-
-            mostrarpiezasj1();
-            mostrarpiezasj2();
-        }
+        
+        
         public static void jugador1o2()
         {
             Random r = new Random();

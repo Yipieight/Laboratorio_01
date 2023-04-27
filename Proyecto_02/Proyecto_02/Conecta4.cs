@@ -42,7 +42,6 @@ namespace Proyecto_02
                             Jugadorvs.jugador1o2();
                             Ganoperdio.comprobar();
                         }
-                        contadorpartidas++;
                         break;
                     case 2:
                         Tabla.tablacrear();

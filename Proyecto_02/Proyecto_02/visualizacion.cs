@@ -17,6 +17,9 @@ namespace Proyecto_02
             posicionac[0] = Console.CursorLeft;
             posicionac[1] = Console.CursorTop;
         }
+
+        //--------------------------------------------------------------------------------------------------------------------
+        //visualizacion de turnos en la tabla
         public static void mostrarturnoj1()
         {
             Console.SetCursorPosition(24, 1);
@@ -59,7 +62,7 @@ namespace Proyecto_02
 
         public static void mostraractual()
         {
-            if (Jugadorvs.piezactual != Jugadorvs.jugador1 || Jugadorvs.piezactual == "")
+            if (Jugadorvs.piezactual == Jugadorvs.jugador1 || Jugadorvs.piezactual == "")
             {
                 visualizacion.mostrarturnoj1();
             }
@@ -73,6 +76,8 @@ namespace Proyecto_02
             }
         }
 
+        //--------------------------------------------------------------------------------------------------------------------
+        //visualizacion en el menu de bienvenida
         public static void bienvenida()
         {
             string visible = "Presione cualquier tecla para continuar...";
@@ -111,6 +116,8 @@ namespace Proyecto_02
             while (!Console.KeyAvailable);
         }
 
+        //--------------------------------------------------------------------------------------------------------------------
+        //visualizacion del menú de ganadores(el historial)
         public static void ganadores()
         {
             Console.Clear();
@@ -125,32 +132,115 @@ namespace Proyecto_02
             Console.WriteLine("Partida | Usuario | Turnos | Modo de juego | Tiempo");
         }
 
+        //----------------------------------------------------------------------------------------------------------------------------------
+        //visualizacion en el menu de escoger ficha
+        public static void mostrarpiezas()
+        {
+            Console.Clear();
+            Console.Write("\r\n\t    ███████╗░██████╗░█████╗░░█████╗░░██████╗░███████╗██████╗░  ███████╗██╗░█████╗░██╗░░██╗░█████╗░" +
+                "\r\n\t    ██╔════╝██╔════╝██╔══██╗██╔══██╗██╔════╝░██╔════╝██╔══██╗  ██╔════╝██║██╔══██╗██║░░██║██╔══██╗" +
+                "\r\n\t    █████╗░░╚█████╗░██║░░╚═╝██║░░██║██║░░██╗░█████╗░░██████╔╝  █████╗░░██║██║░░╚═╝███████║███████║" +
+                "\r\n\t    ██╔══╝░░░╚═══██╗██║░░██╗██║░░██║██║░░╚██╗██╔══╝░░██╔══██╗  ██╔══╝░░██║██║░░██╗██╔══██║██╔══██║" +
+                "\r\n\t    ███████╗██████╔╝╚█████╔╝╚█████╔╝╚██████╔╝███████╗██║░░██║  ██║░░░░░██║╚█████╔╝██║░░██║██║░░██║" +
+                "\r\n\t    ╚══════╝╚═════╝░░╚════╝░░╚════╝░░╚═════╝░╚══════╝╚═╝░░╚═╝  ╚═╝░░░░░╚═╝░╚════╝░╚═╝░░╚═╝╚═╝░░╚═╝");
+
+            if (Jugadorvs.nombreactual[0] == Jugadorvs.nombreactual[0])
+            {
+                mostrarpiezasj1();
+            }
+            visualizacion.vs();
+            if (Jugadorvs.nombreactual[1] != "CPU1")
+            {
+                mostrarpiezasj2();
+            }
+            if (Jugadorvs.nombreactual[1] == "CPU1")
+            {
+                mostrarpiezasbot();
+            }
+        }
+
+        public static void mostrarpiezasbot()
+        {
+            string espacios = "\t\t\t\t\t\t\t\t\t     ";
+            Console.SetCursorPosition(0, 6);
+            Console.Write("\n\n" + espacios + "\t\t\t█▄▄ █▀█ ▀█▀" +
+                "\r\n" + espacios + "\t\t\t█▄█ █▄█  █");
+            Console.WriteLine("\r\n" + espacios + "═══════════════════════════════════════════\n\n");
+            for (int i = 0; i < 2; i++)
+            {
+                Console.SetCursorPosition(80, 13 + i);
+                for (int e = 0; e < Controles.piezas1.GetLength(1); e++)
+                {
+                    Console.Write(Controles.piezas1[i, e] + "\t");
+                }
+                Console.WriteLine();
+            }
+            Console.WriteLine("\r\n\n" + espacios + "═══════════════════════════════════════════");
+        }
+        public static void mostrarpiezasj2()
+        {
+            string espacios = "\t\t\t\t\t\t\t\t\t     ";
+            Console.SetCursorPosition(0, 6);
+            Console.Write("\n\n" + espacios + "\t\t\t  █ ▀█" +
+                "\r\n" + espacios + "\t\t\t█▄█ █▄");
+            Console.WriteLine("\r\n" + espacios + "═══════════════════════════════════════════\n\n");
+            for (int i = 0; i < 2; i++)
+            {
+                Console.SetCursorPosition(80, 13 + i);
+                for (int e = 0; e < Controles.piezas1.GetLength(1); e++)
+                {
+                    Console.Write(Controles.piezas1[i, e] + "\t");
+                }
+                Console.WriteLine();
+            }
+            Console.WriteLine("\r\n\n" + espacios + "═══════════════════════════════════════════");
+            if (Controles.tecla.Key == ConsoleKey.Enter && Jugadorvs.jugador1.Any(char.IsLetter) || Jugadorvs.jugador1.Any(char.IsSymbol))
+            {
+                listo();
+            }
+        }
+        public static void mostrarpiezasj1()
+        {
+            Console.Write("\n\n\t\t  █ ▄█" +
+                "\r\n\t\t█▄█  █");
+            Console.WriteLine("\r\n═══════════════════════════════════════════\n\n");
+            for (int i = 0; i < 2; i++)
+            {
+                for (int e = 0; e < Controles.piezas.GetLength(1); e++)
+                {
+                    Console.Write("  "+Controles.piezas[i, e] + "\t");
+                }
+                Console.WriteLine();
+            }
+            Console.WriteLine("\r\n\n═══════════════════════════════════════════\"");
+            if(Controles.tecla.Key == ConsoleKey.Enter && Jugadorvs.jugador1.Any(char.IsLetter) || Jugadorvs.jugador1.Any(char.IsSymbol))
+            {
+                listo();
+            }
+        }
+
         public static void incorrecto()
         {
-            Console.WriteLine("\r\n\n██╗░░██╗" +
-                "\r\n╚██╗██╔╝" +
-                "\r\n░╚███╔╝░" +
-                "\r\n░██╔██╗░" +
-                "\r\n██╔╝╚██╗" +
-                "\r\n╚═╝░░╚═╝");
+            Console.Write("\r\n\n\n\n\n\n\t█▀▀ █▀ ▀█▀ ▄▀█   █▀▀ █ █▀▀ █░█ ▄▀█   █▄░█ █▀█   █▀▀ █▀ ▀█▀ ▄▀█   █▀▄ █ █▀ █▀█ █▀█ █▄░█ █ █▄▄ █░░ █▀▀ ░ ░ ░");
+            Console.Write("\r\n\t██▄ ▄█ ░█░ █▀█   █▀░ █ █▄▄ █▀█ █▀█   █░▀█ █▄█   ██▄ ▄█ ░█░ █▀█   █▄▀ █ ▄█ █▀▀ █▄█ █░▀█ █ █▄█ █▄▄ ██▄ ▄ ▄ ▄");
         }
         public static void vs()
         {
             string espacios = "\t\t\t\t\t\t    ";
             Console.SetCursorPosition(0, 10);
-            Console.Write("\r\n"+espacios+"██╗░░░██╗░██████╗" +
-                "\r\n"+espacios+"██║░░░██║██╔════╝" +
-                "\r\n"+espacios+"╚██╗░██╔╝╚█████╗░" +
-                "\r\n"+espacios+"░╚████╔╝░░╚═══██╗" +
-                "\r\n"+espacios+"░░╚██╔╝░░██████╔╝" +
-                "\r\n"+espacios+"░░░╚═╝░░░╚═════╝░");
+            Console.Write("\r\n" + espacios + "██╗░░░██╗░██████╗" +
+                "\r\n" + espacios + "██║░░░██║██╔════╝" +
+                "\r\n" + espacios + "╚██╗░██╔╝╚█████╗░" +
+                "\r\n" + espacios + "░╚████╔╝░░╚═══██╗" +
+                "\r\n" + espacios + "░░╚██╔╝░░██████╔╝" +
+                "\r\n" + espacios + "░░░╚═╝░░░╚═════╝░");
         }
 
-        public static void listo() 
+        public static void listo()
         {
-            Console.WriteLine("\r\n\n█░░ █ █▀ ▀█▀ █▀█ █" +
-                "\r\n█▄▄ █ ▄█ ░█░ █▄█ ▄");
+            Console.WriteLine("\r\n\t   █░░ █ █▀ ▀█▀ █▀█ █" +
+                "\r\n\t   █▄▄ █ ▄█ ░█░ █▄█ ▄");
         }
-        
+
     }
 }

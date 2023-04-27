@@ -38,7 +38,7 @@ namespace Proyecto_02
                     }
                     else if (i == 11)
                     {
-                        Console.SetCursorPosition(20, fila);
+                        Console.SetCursorPosition(27, fila);
                         Console.WriteLine("No hay partidas guardadas todavia...");
                     }
                     else
