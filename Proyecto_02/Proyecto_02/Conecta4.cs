@@ -9,7 +9,7 @@ namespace Proyecto_02
 {
     internal class Conecta4
     {
-        public static int contadorpartidas = 0;
+        public static int contadorpartidas = 1;
         public static string denuevo = "";
         public static string[] mododejuego = new string[2] { "JvsJ", "JvsB" };
         public static bool ganador = false;
@@ -75,6 +75,7 @@ namespace Proyecto_02
         {
             Jugadorvs.jugador1 = Controles.controlespieza1();
             Jugadorvs.jugador2 = Controles.controlespieza2();
+            visualizacion.mostrarpiezas();
         }
 
 

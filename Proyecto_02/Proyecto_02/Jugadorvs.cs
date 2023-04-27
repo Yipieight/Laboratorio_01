@@ -15,7 +15,7 @@ namespace Proyecto_02
         public static string[] nombreactual = new string[2];
         public static string piezactual = "";
         public static string jugador1 = "";
-        public static string jugador2 = "CPU1";
+        public static string jugador2 = "";
         public static int columna = 0;
         public static void colocarpieza()
         {

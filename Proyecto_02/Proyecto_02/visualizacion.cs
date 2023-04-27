@@ -194,9 +194,10 @@ namespace Proyecto_02
                 Console.WriteLine();
             }
             Console.WriteLine("\r\n\n" + espacios + "═══════════════════════════════════════════");
-            if (Controles.tecla.Key == ConsoleKey.Enter && Jugadorvs.jugador1.Any(char.IsLetter) || Jugadorvs.jugador1.Any(char.IsSymbol))
+            if (Controles.tecla.Key == ConsoleKey.Enter && Jugadorvs.jugador2.Any(char.IsLetter) || Jugadorvs.jugador2.Any(char.IsSymbol))
             {
-                listo();
+                listoj2();
+                Thread.Sleep(1000);
             }
         }
         public static void mostrarpiezasj1()
@@ -215,14 +216,14 @@ namespace Proyecto_02
             Console.WriteLine("\r\n\n═══════════════════════════════════════════\"");
             if(Controles.tecla.Key == ConsoleKey.Enter && Jugadorvs.jugador1.Any(char.IsLetter) || Jugadorvs.jugador1.Any(char.IsSymbol))
             {
-                listo();
+                listoj1();
             }
         }
 
         public static void incorrecto()
         {
-            Console.Write("\r\n\n\n\n\n\n\t█▀▀ █▀ ▀█▀ ▄▀█   █▀▀ █ █▀▀ █░█ ▄▀█   █▄░█ █▀█   █▀▀ █▀ ▀█▀ ▄▀█   █▀▄ █ █▀ █▀█ █▀█ █▄░█ █ █▄▄ █░░ █▀▀ ░ ░ ░");
-            Console.Write("\r\n\t██▄ ▄█ ░█░ █▀█   █▀░ █ █▄▄ █▀█ █▀█   █░▀█ █▄█   ██▄ ▄█ ░█░ █▀█   █▄▀ █ ▄█ █▀▀ █▄█ █░▀█ █ █▄█ █▄▄ ██▄ ▄ ▄ ▄");
+            Console.Write("\r\n\n\n\n\n\t\t█▀▀ █▀ ▀█▀ ▄▀█   █▀▀ █ █▀▀ █░█ ▄▀█   █▄█ ▄▀█   █▀▀ █▀ ▀█▀ ▄▀█   █▀▀ █▄░█   █░█ █▀ █▀█ ░ ░ ░");
+            Console.Write("\r\n\t\t██▄ ▄█ ░█░ █▀█   █▀░ █ █▄▄ █▀█ █▀█   ░█░ █▀█   ██▄ ▄█ ░█░ █▀█   ██▄ █░▀█   █▄█ ▄█ █▄█ ▄ ▄ ▄");
         }
         public static void vs()
         {
@@ -236,10 +237,16 @@ namespace Proyecto_02
                 "\r\n" + espacios + "░░░╚═╝░░░╚═════╝░");
         }
 
-        public static void listo()
+        public static void listoj1()
         {
             Console.WriteLine("\r\n\t   █░░ █ █▀ ▀█▀ █▀█ █" +
                 "\r\n\t   █▄▄ █ ▄█ ░█░ █▄█ ▄");
+        }
+        public static void listoj2()
+        {
+            string espacios = "\t\t\t\t\t\t\t\t\t\t\t";
+            Console.WriteLine("\r\n"+espacios+"   █░░ █ █▀ ▀█▀ █▀█ █" +
+                "\r\n"+espacios+"   █▄▄ █ ▄█ ░█░ █▄█ ▄");
         }
 
     }

@@ -92,7 +92,6 @@ namespace Proyecto_02
                 }
                 if (Jugadorvs.jugador1 == Controles.piezas[fila, columna].Replace(flechaiz, "").Replace(flechade, "") && tecla.Key == ConsoleKey.Enter)
                 {
-                    visualizacion.mostrarpiezas();
                     visualizacion.incorrecto();
                     Thread.Sleep(1000);
                 }
@@ -138,7 +137,6 @@ namespace Proyecto_02
                 }
                 if (Jugadorvs.jugador1 == piezas1[fila, columna].Replace(flechaiz, "").Replace(flechade, "") && tecla.Key == ConsoleKey.Enter)
                 {
-                    visualizacion.mostrarpiezas();
                     visualizacion.incorrecto();
                     Thread.Sleep(1000);
                 }
