@@ -23,7 +23,42 @@ namespace Proyecto_02
             rectahorizontal();
             diagonal();
             reversadiagonal();
+            empate();
             Tabla.tablamostrar();
+        }
+        public static void empate()
+        {
+            if (Tabla.tabla.Cast<string>().Skip(0).Take(Tabla.tabla.GetLength(1)).Any(elemento => elemento.Contains(Jugadorvs.jugador1)) && Tabla.tabla.Cast<string>().Skip(0).Take(Tabla.tabla.GetLength(1)).Any(elemento => elemento.Contains(Jugadorvs.jugador2)) && 
+                !Tabla.tabla.Cast<string>().Skip(0).Take(Tabla.tabla.GetLength(1)).Any(elemento => elemento.Contains(" ")))
+            {
+                Console.WriteLine("Empate");
+            }
+        }
+        public static void posiblesganadores()
+        {
+            if (Jugadorvs.piezactual == Jugadorvs.jugador1)
+            {
+                visualizacion.ganador();
+                Console.Write("\n¡El jugador " + Jugadorvs.nombreactual[0] + " (J1) es el ganador!");
+                guardarpartida(Jugadorvs.nombreactual[0], tiempofinal(), Jugadorvs.turnosporjugador[0], Conecta4.mododejuego[Controles.subindice - 1]);
+
+            }
+            else if (Jugadorvs.piezactual == Jugadorvs.jugador2)
+            {
+                visualizacion.ganador();
+                Console.WriteLine("\n¡El jugador " + Jugadorvs.nombreactual[1] + " (J2) es el ganador!");
+                guardarpartida(Jugadorvs.nombreactual[1], tiempofinal(), Jugadorvs.turnosporjugador[1], Conecta4.mododejuego[Controles.subindice - 1]);
+            }
+            else
+            {
+                visualizacion.ganador();
+                Console.WriteLine("¡La CPU1 es el ganador!");
+                guardarpartida(Jugadorvs.nombreactual[2], tiempofinal(), Jugadorvs.turnosporjugador[2], Conecta4.mododejuego[Controles.subindice - 1]);
+            }
+        }
+        public static void ganador2()
+        {
+
         }
         public static void rectarriba()
         {
@@ -43,24 +78,7 @@ namespace Proyecto_02
                             }
                             Conecta4.ganador = true;
                             Tabla.tablamostrar();
-                            if (Jugadorvs.piezactual == Jugadorvs.jugador1)
-                            {
-                                visualizacion.ganador();
-                                Console.Write("\n¡El jugador " + Jugadorvs.nombreactual[0] + " (J1) es el ganador!");
-                                guardarpartida(Jugadorvs.nombreactual[0], tiempofinal(), Jugadorvs.turnosporjugador[0], Conecta4.mododejuego[Controles.subindice - 1]);
-                            }
-                            else if (Jugadorvs.piezactual == Jugadorvs.jugador2)
-                            {
-                                visualizacion.ganador();
-                                Console.WriteLine("\n¡El jugador " + Jugadorvs.nombreactual[1] + " (J2) es el ganador!");
-                                guardarpartida(Jugadorvs.nombreactual[1], tiempofinal(), Jugadorvs.turnosporjugador[1], Conecta4.mododejuego[Controles.subindice - 1]);
-                            }
-                            else
-                            {
-                                visualizacion.ganador();
-                                Console.WriteLine("¡La CPU1 es el ganador!");
-                                guardarpartida(Jugadorvs.nombreactual[2], tiempofinal(), Jugadorvs.turnosporjugador[2], Conecta4.mododejuego[Controles.subindice - 1]);
-                            }
+                            posiblesganadores();
                             Console.ReadKey();
                         }
                     }
@@ -90,24 +108,7 @@ namespace Proyecto_02
                             }
                             Conecta4.ganador = true;
                             Tabla.tablamostrar();
-                            if (Jugadorvs.piezactual == Jugadorvs.jugador1)
-                            {
-                                visualizacion.ganador();
-                                Console.Write("\n¡El jugador " + Jugadorvs.nombreactual[0] + " (J1) es el ganador!");
-                                guardarpartida(Jugadorvs.nombreactual[0], tiempofinal(), Jugadorvs.turnosporjugador[0], Conecta4.mododejuego[Controles.subindice - 1]);
-                            }
-                            else if (Jugadorvs.piezactual == Jugadorvs.jugador2)
-                            {
-                                visualizacion.ganador();
-                                Console.WriteLine("\n¡El jugador " + Jugadorvs.nombreactual[1] + " (J2) es el ganador!");
-                                guardarpartida(Jugadorvs.nombreactual[1], tiempofinal(), Jugadorvs.turnosporjugador[1], Conecta4.mododejuego[Controles.subindice - 1]);
-                            }
-                            else
-                            {
-                                visualizacion.ganador();
-                                Console.WriteLine("¡La CPU1 es el ganador!");
-                                guardarpartida(Jugadorvs.nombreactual[2], tiempofinal(), Jugadorvs.turnosporjugador[2], Conecta4.mododejuego[Controles.subindice - 1]);
-                            }
+                            posiblesganadores();
                             Console.ReadKey();
                         }
                     }
@@ -136,29 +137,8 @@ namespace Proyecto_02
                             }
                             Conecta4.ganador = true;
                             Tabla.tablamostrar();
-                            if (Jugadorvs.piezactual == Jugadorvs.jugador1)
-                            {
-                                visualizacion.ganador();
-                                Console.Write("\n¡El jugador " + Jugadorvs.nombreactual[0] + " (J1) es el ganador!");
-                                guardarpartida(Jugadorvs.nombreactual[0], tiempofinal(), Jugadorvs.turnosporjugador[0], Conecta4.mododejuego[Controles.subindice - 1]);
-                            }
-                            else if (Jugadorvs.piezactual == Jugadorvs.jugador2)
-                            {
-                                visualizacion.ganador();
-                                Console.WriteLine("\n¡El jugador " + Jugadorvs.nombreactual[1] + " (J2) es el ganador!");
-                                guardarpartida(Jugadorvs.nombreactual[1], tiempofinal(), Jugadorvs.turnosporjugador[1], Conecta4.mododejuego[Controles.subindice - 1]);
-                            }
-                            else
-                            {
-                                visualizacion.ganador();
-                                Console.WriteLine("¡La CPU1 es el ganador!");
-                                guardarpartida(Jugadorvs.nombreactual[2], tiempofinal(), Jugadorvs.turnosporjugador[2], Conecta4.mododejuego[Controles.subindice - 1]);
-                            }
+                            posiblesganadores();
                             Console.ReadKey();
-                        }
-                        else if (e == 0)
-                        {
-
                         }
                     }
                     catch
@@ -186,30 +166,8 @@ namespace Proyecto_02
                             }
                             Conecta4.ganador = true;
                             Tabla.tablamostrar();
-                            if (Jugadorvs.piezactual == Jugadorvs.jugador1)
-                            {
-                                visualizacion.ganador();
-                                Console.Write("\n¡El jugador " + Jugadorvs.nombreactual[0] + " (J1) es el ganador!");
-                                guardarpartida(Jugadorvs.nombreactual[0], tiempofinal(), Jugadorvs.turnosporjugador[0], Conecta4.mododejuego[Controles.subindice - 1]);
-                            }
-                            else if (Jugadorvs.piezactual == Jugadorvs.jugador2)
-                            {
-                                visualizacion.ganador();
-                                Console.Write("\n¡El jugador " + Jugadorvs.nombreactual[1] + " (J2) es el ganador!");
-                                guardarpartida(Jugadorvs.nombreactual[1], tiempofinal(), Jugadorvs.turnosporjugador[1], Conecta4.mododejuego[Controles.subindice - 1]);
-                            }
-                            else
-                            {
-                                visualizacion.ganador();
-                                Console.Write("¡La CPU1 es el ganador!");
-                                guardarpartida(Jugadorvs.nombreactual[2], tiempofinal(), Jugadorvs.turnosporjugador[2], Conecta4.mododejuego[Controles.subindice - 1]);
-
-                            }
+                            posiblesganadores();
                             Console.ReadKey();
-                        }
-                        else if (Tabla.tabla.Cast<string>().Skip(0).Take(Tabla.tabla.GetLength(1)).Any(elemento => elemento == Jugadorvs.jugador1) && Tabla.tabla.Cast<string>().Skip(0).Take(Tabla.tabla.GetLength(1)).Any(elemento => elemento == Jugadorvs.jugador2) && Tabla.tabla.Cast<string>().Skip(0).Take(Tabla.tabla.GetLength(1)).Any(elemento => elemento == "["))
-                        {
-                            Console.WriteLine("Empate");
                         }
                     }
                     catch
