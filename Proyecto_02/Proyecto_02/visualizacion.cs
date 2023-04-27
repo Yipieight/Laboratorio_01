@@ -176,6 +176,12 @@ namespace Proyecto_02
                 Console.WriteLine();
             }
             Console.WriteLine("\r\n\n" + espacios + "═══════════════════════════════════════════");
+            if (Controles.tecla.Key == ConsoleKey.Enter && Jugadorvs.jugador2.Any(char.IsLetter) || Jugadorvs.jugador2.Any(char.IsSymbol)
+                || Jugadorvs.jugador2.Any(c => c == '☻' || c == '☺' || c == '#' || c == '@'))
+            {
+                listoj2();
+                Thread.Sleep(1000);
+            }
         }
         public static void mostrarpiezasj2()
         {
@@ -194,7 +200,8 @@ namespace Proyecto_02
                 Console.WriteLine();
             }
             Console.WriteLine("\r\n\n" + espacios + "═══════════════════════════════════════════");
-            if (Controles.tecla.Key == ConsoleKey.Enter && Jugadorvs.jugador2.Any(char.IsLetter) || Jugadorvs.jugador2.Any(char.IsSymbol))
+            if (Controles.tecla.Key == ConsoleKey.Enter && Jugadorvs.jugador2.Any(char.IsLetter) || Jugadorvs.jugador2.Any(char.IsSymbol) 
+                || Jugadorvs.jugador2.Any(c => c == '☻' || c == '☺'|| c == '#' || c == '@'))
             {
                 listoj2();
                 Thread.Sleep(1000);
@@ -214,7 +221,8 @@ namespace Proyecto_02
                 Console.WriteLine();
             }
             Console.WriteLine("\r\n\n═══════════════════════════════════════════\"");
-            if(Controles.tecla.Key == ConsoleKey.Enter && Jugadorvs.jugador1.Any(char.IsLetter) || Jugadorvs.jugador1.Any(char.IsSymbol))
+            if(Controles.tecla.Key == ConsoleKey.Enter && Jugadorvs.jugador1.Any(char.IsLetter) || Jugadorvs.jugador1.Any(char.IsSymbol) 
+                || Jugadorvs.jugador1.Any(c => c == '☻' || c == '☺' || c == '#' || c == '@'))
             {
                 listoj1();
             }

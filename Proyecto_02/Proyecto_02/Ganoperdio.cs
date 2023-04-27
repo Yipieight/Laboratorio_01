@@ -46,7 +46,7 @@ namespace Proyecto_02
                 guardarpartida(Jugadorvs.nombreactual[0], tiempofinal(), Jugadorvs.turnosporjugador[0], Conecta4.mododejuego[Controles.subindice - 1]);
 
             }
-            else if (Jugadorvs.piezactual == Jugadorvs.jugador2)
+            else if (Jugadorvs.piezactual == Jugadorvs.jugador2 && Jugadorvs.nombreactual[1] != "CPU1")
             {
                 visualizacion.ganador();
                 Console.WriteLine("\n¡El jugador " + Jugadorvs.nombreactual[1] + " (J2) es el ganador!");
