@@ -31,7 +31,10 @@ namespace Proyecto_02
             if (Tabla.tabla.Cast<string>().Skip(0).Take(Tabla.tabla.GetLength(1)).Any(elemento => elemento.Contains(Jugadorvs.jugador1)) && Tabla.tabla.Cast<string>().Skip(0).Take(Tabla.tabla.GetLength(1)).Any(elemento => elemento.Contains(Jugadorvs.jugador2)) && 
                 !Tabla.tabla.Cast<string>().Skip(0).Take(Tabla.tabla.GetLength(1)).Any(elemento => elemento.Contains(" ")))
             {
-                Console.WriteLine("Empate");
+                Console.WriteLine("\r\n\n█▀▀ █▀▄▀█ █▀█ ▄▀█ ▀█▀ █▀▀ ░ ░ ░" +
+                    "\r\n██▄ █░▀░█ █▀▀ █▀█ ░█░ ██▄ ▄ ▄ ▄");
+                Conecta4.ganador = true;
+                Console.ReadKey();
             }
         }
         public static void posiblesganadores()
@@ -55,10 +58,6 @@ namespace Proyecto_02
                 Console.WriteLine("¡La CPU1 es el ganador!");
                 guardarpartida(Jugadorvs.nombreactual[2], tiempofinal(), Jugadorvs.turnosporjugador[2], Conecta4.mododejuego[Controles.subindice - 1]);
             }
-        }
-        public static void ganador2()
-        {
-
         }
         public static void rectarriba()
         {
