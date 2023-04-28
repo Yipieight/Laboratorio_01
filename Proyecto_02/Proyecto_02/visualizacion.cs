@@ -134,6 +134,21 @@ namespace Proyecto_02
 
         //----------------------------------------------------------------------------------------------------------------------------------
         //visualizacion en el menu de escoger ficha
+
+        public static void regresar()
+        {
+            visualizacion.mostrarpiezas();
+            string espacio = "\t\t\t\t     ";
+            Console.WriteLine("\r\n"+espacio+ "░▄ █▀▀ █▀ ▀█▀ ▄▀█ █▄░█   █░░ █ █▀ ▀█▀ █▀█ █▀ ▀█" +
+                "\r\n"+espacio+ "█▄ ██▄ ▄█ ░█░ █▀█ █░▀█   █▄▄ █ ▄█ ░█░ █▄█ ▄█ ░▄");
+            Console.SetCursorPosition(29, 26);
+            Console.WriteLine("Presiona ENTER para continuar o presiona DELETE para regresar...");
+            Controles.tecla = Console.ReadKey(true);
+            if (Controles.tecla.Key == ConsoleKey.Backspace)
+            {
+                Jugadorvs.jugador1 = ""; Jugadorvs.jugador2 = "";
+            }
+        }
         public static void mostrarpiezas()
         {
             Console.Clear();
@@ -162,13 +177,13 @@ namespace Proyecto_02
         public static void mostrarpiezasbot()
         {
             string espacios = "\t\t\t\t\t\t\t\t\t     ";
-            Console.SetCursorPosition(0, 6);
+            Console.SetCursorPosition(0, 7);
             Console.Write("\n\n" + espacios + "\t\t\t█▄▄ █▀█ ▀█▀" +
                 "\r\n" + espacios + "\t\t\t█▄█ █▄█  █");
-            Console.WriteLine("\r\n" + espacios + "═══════════════════════════════════════════\n\n");
+            Console.WriteLine("\r\n\n" + espacios + "═══════════════════════════════════════════\n\n");
             for (int i = 0; i < 2; i++)
             {
-                Console.SetCursorPosition(80, 13 + i);
+                Console.SetCursorPosition(80, 15 + i);
                 for (int e = 0; e < Controles.piezas1.GetLength(1); e++)
                 {
                     Console.Write(Controles.piezas1[i, e] + "\t");
@@ -180,19 +195,18 @@ namespace Proyecto_02
                 || Jugadorvs.jugador2.Any(c => c == '☻' || c == '☺' || c == '#' || c == '@'))
             {
                 listoj2();
-                Thread.Sleep(1000);
             }
         }
         public static void mostrarpiezasj2()
         {
             string espacios = "\t\t\t\t\t\t\t\t\t     ";
-            Console.SetCursorPosition(0, 6);
+            Console.SetCursorPosition(0, 7);
             Console.Write("\n\n" + espacios + "\t\t\t  █ ▀█" +
                 "\r\n" + espacios + "\t\t\t█▄█ █▄");
-            Console.WriteLine("\r\n" + espacios + "═══════════════════════════════════════════\n\n");
+            Console.WriteLine("\r\n\n" + espacios + "═══════════════════════════════════════════\n\n");
             for (int i = 0; i < 2; i++)
             {
-                Console.SetCursorPosition(80, 13 + i);
+                Console.SetCursorPosition(80, 15 + i);
                 for (int e = 0; e < Controles.piezas1.GetLength(1); e++)
                 {
                     Console.Write(Controles.piezas1[i, e] + "\t");
@@ -204,14 +218,13 @@ namespace Proyecto_02
                 || Jugadorvs.jugador2.Any(c => c == '☻' || c == '☺'|| c == '#' || c == '@'))
             {
                 listoj2();
-                Thread.Sleep(1000);
             }
         }
         public static void mostrarpiezasj1()
         {
-            Console.Write("\n\n\t\t  █ ▄█" +
+            Console.Write("\n\n\n\t\t  █ ▄█" +
                 "\r\n\t\t█▄█  █");
-            Console.WriteLine("\r\n═══════════════════════════════════════════\n\n");
+            Console.WriteLine("\r\n\n═══════════════════════════════════════════\n\n");
             for (int i = 0; i < 2; i++)
             {
                 for (int e = 0; e < Controles.piezas.GetLength(1); e++)
@@ -220,8 +233,8 @@ namespace Proyecto_02
                 }
                 Console.WriteLine();
             }
-            Console.WriteLine("\r\n\n═══════════════════════════════════════════\"");
-            if(Controles.tecla.Key == ConsoleKey.Enter && Jugadorvs.jugador1.Any(char.IsLetter) || Jugadorvs.jugador1.Any(char.IsSymbol) 
+            Console.WriteLine("\r\n\n═══════════════════════════════════════════");
+            if(Jugadorvs.jugador1.Any(char.IsLetter) || Jugadorvs.jugador1.Any(char.IsSymbol) 
                 || Jugadorvs.jugador1.Any(c => c == '☻' || c == '☺' || c == '#' || c == '@'))
             {
                 listoj1();
@@ -236,7 +249,7 @@ namespace Proyecto_02
         public static void vs()
         {
             string espacios = "\t\t\t\t\t\t    ";
-            Console.SetCursorPosition(0, 10);
+            Console.SetCursorPosition(0, 12);
             Console.Write("\r\n" + espacios + "██╗░░░██╗░██████╗" +
                 "\r\n" + espacios + "██║░░░██║██╔════╝" +
                 "\r\n" + espacios + "╚██╗░██╔╝╚█████╗░" +

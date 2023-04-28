@@ -50,11 +50,11 @@ namespace Proyecto_02
             while (tecla.Key != ConsoleKey.Enter);
             subindice += 1;
         }
-        //public static string[,] piezas = new string[2, 4] { { "♣", "♠", "♥", "♦" }, { "X", "O", "@", "#" } };
+        //----------------------------------------------------------------------------------------------------------------------------------------------------
+        //menú de colocar pieza
         public static string[,] piezas = new string[2, 5] { { "♣", "♠", "♥", "♦","☺"}, { "X", "O", "@", "#" , "☻" } };
         public static int columna = 0;
         public static int fila = 0;
-
         public static string controlespieza1()
         {
 
@@ -109,7 +109,7 @@ namespace Proyecto_02
             do
             {
                 visualizacion.mostrarpiezas();
-                tecla = Console.ReadKey(false);
+                tecla = Console.ReadKey(true);
                 if (tecla.Key == ConsoleKey.UpArrow && 0 != fila || tecla.Key == ConsoleKey.W && 0 != fila)
                 {
                     piezas1[fila, columna] = piezas1[fila, columna].Replace(flechaiz, "").Replace(flechade, "");
@@ -134,6 +134,13 @@ namespace Proyecto_02
                     piezas1[fila, columna] = piezas1[fila, columna].Replace(flechaiz, "").Replace(flechade, "");
                     columna -= 1;
                     piezas1[fila, columna] = piezas1[fila, columna].Insert(0, flechaiz).Insert(piezas1[fila, columna].Length + 1, flechade);
+                }
+                else if(tecla.Key == ConsoleKey.Backspace)
+                {
+                    piezas1 = new string[2, 5] { { "♣", "♠", "♥", "♦", "☺" }, { "X", "O", "@", "#", "☻" } };
+                    visualizacion.mostrarpiezas();
+                    Jugadorvs.jugador1 = "";
+                    return "";
                 }
                 if (Jugadorvs.jugador1 == piezas1[fila, columna].Replace(flechaiz, "").Replace(flechade, "") && tecla.Key == ConsoleKey.Enter)
                 {

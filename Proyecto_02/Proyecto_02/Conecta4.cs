@@ -73,9 +73,20 @@ namespace Proyecto_02
 
         public static void escojerpieza1y2() 
         {
-            Jugadorvs.jugador1 = Controles.controlespieza1();
-            Jugadorvs.jugador2 = Controles.controlespieza2();
-            visualizacion.mostrarpiezas();
+            do
+            {
+                Jugadorvs.jugador1 = Controles.controlespieza1();
+                do
+                {
+                    Jugadorvs.jugador2 = Controles.controlespieza2();
+                    if (Controles.tecla.Key != ConsoleKey.Backspace)
+                    {
+                        visualizacion.regresar();
+                    }
+                } while (Controles.tecla.Key == ConsoleKey.Backspace);
+            }
+            while (Controles.tecla.Key == ConsoleKey.Backspace);
+            
         }
 
 
