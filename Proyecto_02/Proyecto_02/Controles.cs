@@ -64,7 +64,7 @@ namespace Proyecto_02
             do
             {
                 visualizacion.mostrarpiezas();
-                tecla = Console.ReadKey(false);
+                tecla = Console.ReadKey(true);
                 if (tecla.Key == ConsoleKey.UpArrow && 0 != fila || tecla.Key == ConsoleKey.W && 0 != fila)
                 {
                     Controles.piezas[fila, columna] = Controles.piezas[fila, columna].Replace(flechaiz, "").Replace(flechade, "");
@@ -97,7 +97,8 @@ namespace Proyecto_02
                 }
             }
             while (tecla.Key != ConsoleKey.Enter || Jugadorvs.jugador1 == Controles.piezas[fila, columna].Replace(flechaiz, "").Replace(flechade, ""));
-            return Controles.piezas[fila, columna] = Controles.piezas[fila, columna].Replace(flechaiz, "").Replace(flechade, "");
+            Controles.piezas[fila, columna] = Controles.piezas[fila, columna].Replace(flechaiz, "").Replace(flechade, "");
+            return Controles.piezas[fila, columna];
 
         }
         public static string[,] piezas1 = new string[2, 5] { { "♣", "♠", "♥", "♦", "☺" }, { "X", "O", "@", "#", "☻" } };

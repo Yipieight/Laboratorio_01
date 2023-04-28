@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace Proyecto_02
 {
@@ -44,13 +45,18 @@ namespace Proyecto_02
             visualizacion.mostraractual();
         }
 
-        public static void tablacolocar(int columna)
+        public static bool tablacolocar(int columna)
         {
             Tabla.tablamostrar();
+            if (Jugadorvs.piezactual == Jugadorvs.jugador2 && tabla[0, columna].Contains(Jugadorvs.jugador1) || tabla[0, columna].Contains(Jugadorvs.jugador2))
+            {
+                return true;
+            }
             if (tabla[0, columna].Contains(Jugadorvs.jugador1) || tabla[0, columna].Contains(Jugadorvs.jugador2))
             {
                 Console.WriteLine("Ya se lleno la columan pruebe con otro");
-                Console.ReadKey();
+                Thread.Sleep(1000);
+                return true;
             }
             else
             {
@@ -59,10 +65,10 @@ namespace Proyecto_02
                     if (!(tabla[i, columna].Contains(Jugadorvs.jugador1)) && !(tabla[i, columna].Contains(Jugadorvs.jugador2)))
                     {
                         tabla[i, columna] = tabla[i, columna].Replace(" ", Jugadorvs.piezactual);
-                        break;
+                        return false;
                     }
-
                 }
+                return true;
             }
         }
     }

@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Diagnostics;
+using System.IO;
 
 namespace Proyecto_02
 {
@@ -66,7 +67,7 @@ namespace Proyecto_02
             {
                 visualizacion.mostrarturnoj1();
             }
-            else if(Jugadorvs.nombreactual[1] != "CPU1")
+            else if(Jugadorvs.nombreactual[2] != "CPU1")
             {
                 visualizacion.mostrarturnoj2();
             }
@@ -141,12 +142,15 @@ namespace Proyecto_02
             string espacio = "\t\t\t\t     ";
             Console.WriteLine("\r\n"+espacio+ "░▄ █▀▀ █▀ ▀█▀ ▄▀█ █▄░█   █░░ █ █▀ ▀█▀ █▀█ █▀ ▀█" +
                 "\r\n"+espacio+ "█▄ ██▄ ▄█ ░█░ █▀█ █░▀█   █▄▄ █ ▄█ ░█░ █▄█ ▄█ ░▄");
-            Console.SetCursorPosition(29, 26);
+            Console.SetCursorPosition(31, 27);
             Console.WriteLine("Presiona ENTER para continuar o presiona DELETE para regresar...");
             Controles.tecla = Console.ReadKey(true);
             if (Controles.tecla.Key == ConsoleKey.Backspace)
             {
-                Jugadorvs.jugador1 = ""; Jugadorvs.jugador2 = "";
+                Jugadorvs.jugador2 = " ";
+            }
+            else
+            {
             }
         }
         public static void mostrarpiezas()
@@ -164,11 +168,11 @@ namespace Proyecto_02
                 mostrarpiezasj1();
             }
             visualizacion.vs();
-            if (Jugadorvs.nombreactual[1] != "CPU1")
+            if (Jugadorvs.nombreactual[2] != "CPU1")
             {
                 mostrarpiezasj2();
             }
-            if (Jugadorvs.nombreactual[1] == "CPU1")
+            if (Jugadorvs.nombreactual[2] == "CPU1")
             {
                 mostrarpiezasbot();
             }

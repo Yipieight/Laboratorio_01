@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 
 namespace Proyecto_02
 {
@@ -34,7 +35,6 @@ namespace Proyecto_02
                         Tabla.tablacrear();
                         ganador = false;
                         Jugadorvs.nombrejugadores();
-                        Tabla.tablamostrar();
                         escojerpieza1y2();
                         Ganoperdio.tiempoinicial();
                         while (ganador != true)
@@ -47,7 +47,6 @@ namespace Proyecto_02
                         Tabla.tablacrear();
                         ganador = false;
                         Jugadorvs.nombrejugadores();
-                        Tabla.tablamostrar();
                         escojerpieza1y2();
                         Ganoperdio.tiempoinicial();;
                         while (ganador != true)
@@ -83,9 +82,9 @@ namespace Proyecto_02
                     {
                         visualizacion.regresar();
                     }
-                } while (Controles.tecla.Key == ConsoleKey.Backspace);
+                }while (Controles.tecla.Key != ConsoleKey.Enter && Controles.tecla.Key != ConsoleKey.Backspace || (Jugadorvs.jugador2.Contains(" ")));
             }
-            while (Controles.tecla.Key == ConsoleKey.Backspace);
+            while (Controles.tecla.Key != ConsoleKey.Enter);
             
         }
 

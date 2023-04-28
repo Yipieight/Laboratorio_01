@@ -12,7 +12,7 @@ namespace Proyecto_02
     class Jugadorvs
     {
         public static int[] turnosporjugador = new int[3] { 0, 0,0 };
-        public static string[] nombreactual = new string[2];
+        public static string[] nombreactual = new string[3];
         public static string piezactual = "";
         public static string jugador1 = "";
         public static string jugador2 = "";
@@ -21,10 +21,6 @@ namespace Proyecto_02
         {
 
             columna = Controles.controltabla();
-            Tabla.tablacolocar(columna);
-            //Console.WriteLine("Ingrese en que columna desea colocar una ficha en la tabla");
-            //columna = int.Parse(Console.ReadLine());
-            //Tabla.tablacolocar();
         }
 
         
@@ -36,19 +32,31 @@ namespace Proyecto_02
             if (piezactual != jugador1 || piezactual == "")
             {
                 piezactual = jugador1;
-                colocarpieza();
+                do
+                {
+                    colocarpieza();
+                }
+                while (Tabla.tablacolocar(columna));
                 turnosporjugador[0] += 1;
             }
-            else if (nombreactual[1] != "CPU1")
+            else if (nombreactual[2] != "CPU1")
             {
                 piezactual = jugador2;
-                colocarpieza();
+                do
+                {
+                    colocarpieza();
+                }
+                while (Tabla.tablacolocar(columna));
                 turnosporjugador[1] += 1;
             }
             else
             {
                 piezactual = jugador2;
-                Tabla.tablacolocar(columna = r.Next(0, 7));
+                do
+                {
+                    columna = r.Next(0,7);
+                }
+                while (Tabla.tablacolocar(columna));
                 Thread.Sleep(1500);
                 turnosporjugador[2] += 1;
             }
@@ -67,7 +75,7 @@ namespace Proyecto_02
             {
                 Console.WriteLine("Ingrese el nombre del primer jugador (J1)");
                 nombreactual[0] = Console.ReadLine();
-                nombreactual[1] = "CPU1";
+                nombreactual[2] = "CPU1";
             }
 
         }
