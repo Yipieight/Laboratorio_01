@@ -223,7 +223,8 @@ namespace Proyecto_02
         public static string controlesnombres()
         {
             letrastabla = new string[4, 9] { { "[1]", "2", "3", "4", "5", "6", "7", "8", "9" }, { "A", "B", "C", "D", "E", "F", "G", "H", "I" }, { "J", "K", "L", "M", "N", "O", "P", "Q", "R" }, { "S", "T", "U", "V", "W", "X", "Y", "Z", "►" } };
-            columna = 0; fila = 0;
+            columna = 0; fila = 0; visualizacion.letras = true;
+            string letranombre = "";
             string flechaiz = "["; string flechade = "]";
             do
             {
@@ -256,11 +257,25 @@ namespace Proyecto_02
                 }
                 else if (tecla.Key == ConsoleKey.Backspace && Jugadorvs.nombreactual[0].Length > 0)
                 {
-                    Jugadorvs.nombreactual[0] = Jugadorvs.nombreactual[0].Substring(0, Jugadorvs.nombreactual[0].Length - 1);
+                    letranombre = Jugadorvs.nombreactual[0] = Jugadorvs.nombreactual[0].Substring(0, Jugadorvs.nombreactual[0].Length - 1);
+                    return letranombre;
+                }
+                else if(tecla.Key == ConsoleKey.Enter && letrastabla[fila, columna].Contains("►"))
+                {
+                    visualizacion.letras = false;
+                    break;
                 }
             }
             while (tecla.Key != ConsoleKey.Enter || Jugadorvs.nombreactual[0] == letrastabla[fila, columna].Replace(flechaiz, "").Replace(flechade, ""));
-            return letrastabla[fila, columna] = letrastabla[fila, columna].Replace(flechaiz, "").Replace(flechade, "");
+            if (Jugadorvs.nombreactual[0].Length < 4)
+            {
+                letranombre = Jugadorvs.nombreactual[0] = Controles.controlesnombres();
+            }
+            else if (Jugadorvs.nombreactual[0].Length == 4)
+            {
+                letranombre = Jugadorvs.nombreactual[0] += letrastabla[fila, columna] = letrastabla[fila, columna].Replace(flechaiz, "").Replace(flechade, "");
+            }
+            return letranombre;
         }
 
     }

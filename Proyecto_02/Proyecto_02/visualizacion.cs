@@ -8,12 +8,14 @@ using System.Threading.Tasks;
 using System.Diagnostics;
 using System.IO;
 using System.Windows.Forms;
+using System.Security.Permissions;
 
 namespace Proyecto_02
 {
     class visualizacion
     {
         public static int[] posicionac = new int[2];
+        public static bool letras = true; 
         public static void posicionactual()
         {
             posicionac[0] = Console.CursorLeft;
@@ -31,27 +33,20 @@ namespace Proyecto_02
             mostrartablanombres();
 
         }
-        public static int menunombrescodigo()
+        public static void menunombrescodigo()
         {
             do
             {
-                if (Jugadorvs.nombreactual[0].Length < 4)
-                {
-                    Jugadorvs.nombreactual[0] = Jugadorvs.nombreactual[0] + Controles.controlesnombres();
-                }
-                else if (Jugadorvs.nombreactual[0].Length == 4)
-                {
-                    Jugadorvs.nombreactual[0] = Jugadorvs.nombreactual[0].Substring(0,Jugadorvs.nombreactual[0].Length-1) + Controles.controlesnombres();
-                }
+                Jugadorvs.nombreactual[0] = Controles.controlesnombres();
             }
-            while (true);
-            return 1;
+            while (letras == true);
+            //return 1;
         }
         public static void mostrartablanombres()
         {
             for (int i = 0; i < 4; i++)
             {
-                //Console.SetCursorPosition(80, 15 + i);
+                Console.SetCursorPosition(25, 15 + i);
                 for (int e = 0; e < Controles.letrastabla.GetLength(1); e++)
                 {
                     Console.Write(Controles.letrastabla[i, e] + "\t");
@@ -62,28 +57,29 @@ namespace Proyecto_02
         public static void nombre()
         {
             Console.WriteLine("" +
-                "\r\n███╗░░██╗░█████╗░███╗░░░███╗██████╗░██████╗░███████╗" +
-                "\r\n████╗░██║██╔══██╗████╗░████║██╔══██╗██╔══██╗██╔════╝" +
-                "\r\n██╔██╗██║██║░░██║██╔████╔██║██████╦╝██████╔╝█████╗░░" +
-                "\r\n██║╚████║██║░░██║██║╚██╔╝██║██╔══██╗██╔══██╗██╔══╝░░" +
-                "\r\n██║░╚███║╚█████╔╝██║░╚═╝░██║██████╦╝██║░░██║███████╗" +
-                "\r\n╚═╝░░╚══╝░╚════╝░╚═╝░░░░░╚═╝╚═════╝░╚═╝░░╚═╝╚══════╝");
-            Console.WriteLine("════════════════════════════════════════════════");
+                "\r\n\t\t\t\t███╗░░██╗░█████╗░███╗░░░███╗██████╗░██████╗░███████╗" +
+                "\r\n\t\t\t\t████╗░██║██╔══██╗████╗░████║██╔══██╗██╔══██╗██╔════╝" +
+                "\r\n\t\t\t\t██╔██╗██║██║░░██║██╔████╔██║██████╦╝██████╔╝█████╗░░" +
+                "\r\n\t\t\t\t██║╚████║██║░░██║██║╚██╔╝██║██╔══██╗██╔══██╗██╔══╝░░" +
+                "\r\n\t\t\t\t██║░╚███║╚█████╔╝██║░╚═╝░██║██████╦╝██║░░██║███████╗" +
+                "\r\n\t\t\t\t╚═╝░░╚══╝░╚════╝░╚═╝░░░░░╚═╝╚═════╝░╚═╝░░╚═╝╚══════╝");
+            Console.WriteLine("\t\t\t════════════════════════════════════════════════════════════════════");
         }
         public static void nombrej1()
         {
             Console.WriteLine("" +
-                "\r\n░░▒█ ▄█░ " +
-                "\r\n▄░▒█ ░█░ " +
-                "\r\n█▄▄█ ▄█▄\n");
+                "\r\n\t\t\t\t\t\t     ░░▒█ ▄█░ " +
+                "\r\n\t\t\t\t\t\t     ▄░▒█ ░█░ " +
+                "\r\n\t\t\t\t\t\t     █▄▄█ ▄█▄\n");
+            Console.SetCursorPosition(55, 13);
             Console.WriteLine(Jugadorvs.nombreactual[0] + "\n");
         }
         public static void nombrej2()
         {
             Console.WriteLine("" +
-                "\r\n░░▒█ █▀█ " +
-                "\r\n▄░▒█ ░▄▀ " +
-                "\r\n█▄▄█ █▄▄");
+                "\r\n\t\t\t\t░░▒█ █▀█ " +
+                "\r\n\t\t\t\t▄░▒█ ░▄▀ " +
+                "\r\n\t\t\t\t█▄▄█ █▄▄");
         }
         //-------------------------------------------------------------------------------------------------------------------
         //visualizacion del menu de modo de juegos
