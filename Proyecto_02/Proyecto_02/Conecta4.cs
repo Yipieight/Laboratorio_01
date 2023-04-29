@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using System.Xml;
 
 namespace Proyecto_02
@@ -14,53 +15,65 @@ namespace Proyecto_02
         public static string denuevo = "";
         public static string[] mododejuego = new string[2] { "JvsJ", "JvsB" };
         public static bool ganador = false;
+
+        
         static void Main(string[] args)
         {
+            visualizacion.menunombrescodigo();
             Console.CursorVisible = false;
             visualizacion.bienvenida();
             Historialdepartida.crearpartidasguardadas();
             do
             {
-                Console.Clear();
-                Console.WriteLine("¿De que forma quiere jugar conecta 4? \n");
-                Console.WriteLine("1. Jugador vs Jugador");
-                Console.WriteLine(("2. Jugador vs Computadora"));
-                Console.WriteLine(("3. Instrucciones del juego"));
-                Console.WriteLine(("4. Historial de partidas"));
-                Console.WriteLine("5. Salir \n");
-                Controles.controlesmenu();
-                switch (Controles.subindice)
+                switch (Controles.subindice = visualizacion.menuprincipal())
                 {
                     case 1:
-                        Tabla.tablacrear();
-                        ganador = false;
-                        Jugadorvs.nombrejugadores();
-                        escojerpieza1y2();
-                        Ganoperdio.tiempoinicial();
-                        while (ganador != true)
-                        {
-                            Jugadorvs.jugador1o2();
-                            Ganoperdio.comprobar();
-                        }
+                        menumododejuegos();
                         break;
                     case 2:
-                        Tabla.tablacrear();
-                        ganador = false;
-                        Jugadorvs.nombrejugadores();
-                        escojerpieza1y2();
-                        Ganoperdio.tiempoinicial();;
-                        while (ganador != true)
-                        {
-                            Jugadorvs.jugador1o2();
-                            Ganoperdio.comprobar();
-                        }
+                        
                         break;
-                    case 4:
+                    case 3:
                         Historialdepartida.mostrarhistorialdepartida();
                         break;
                 }
             }
-            while(Controles.subindice != 5);
+            while(Controles.subindice != 4);
+        }
+
+        public static void menumododejuegos()
+        {
+            switch (visualizacion.menumododejuego())
+            {
+                case 1:
+                    Tabla.tablacrear();
+                    ganador = false;
+                    Jugadorvs.nombrejugadores();
+                    escojerpieza1y2();
+                    Ganoperdio.tiempoinicial();
+                    while (ganador != true)
+                    {
+                        Jugadorvs.jugador1o2();
+                        Ganoperdio.comprobar();
+                    }
+                    break;
+                case 2:
+                    Tabla.tablacrear();
+                    ganador = false;
+                    Jugadorvs.nombrejugadores();
+                    escojerpieza1y2();
+                    Ganoperdio.tiempoinicial(); ;
+                    while (ganador != true)
+                    {
+                        Jugadorvs.jugador1o2();
+                        Ganoperdio.comprobar();
+                    }
+                    break;
+                 case 3:
+                    {
+                        break;
+                    }
+            }
         }
 
         public static void jugardenuevo()

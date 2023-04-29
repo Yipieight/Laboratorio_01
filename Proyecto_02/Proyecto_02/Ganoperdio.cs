@@ -23,7 +23,6 @@ namespace Proyecto_02
             rectahorizontal();
             diagonal();
             reversadiagonal();
-            empate();
             Tabla.tablamostrar();
         }
         public static void empate()
@@ -168,6 +167,12 @@ namespace Proyecto_02
                             posiblesganadores();
                             Console.ReadKey();
                         }
+                        else
+                        {
+                            Tabla.tablamostrar();
+                            empate();
+                            break;
+                        }
                     }
                     catch
                     {
@@ -175,7 +180,6 @@ namespace Proyecto_02
                     }
                 }
             }
-
         }
 
         public static void tiempoinicial()
@@ -220,8 +224,8 @@ namespace Proyecto_02
             }
             historialganador[ultimonumero()] = partidasstring + "       " + ganador + "       " + turnosstring + "         " + mododejuego+ "         " + tiempo;
             Historialdepartida.guardarhistorialdepartida(historialganador[ultimonumero()]);
-            Jugadorvs.jugador1 = "";
-            Jugadorvs.jugador2 = "";
+            Jugadorvs.jugador1 = ""; Jugadorvs.jugador2 = ""; Jugadorvs.nombreactual[2] = "CPU1";
+
             Conecta4.contadorpartidas++;
         }
     }

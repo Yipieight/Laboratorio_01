@@ -31,14 +31,14 @@ namespace Proyecto_02
                 {
                     if(i < 10)
                     {
-                        Console.SetCursorPosition(21, fila);
+                        Console.SetCursorPosition(37, fila);
                         Console.WriteLine(partidasamostrar[i]);
                         Thread.Sleep(300);
                         fila += 1;
                     }
                     else if (i == 11)
                     {
-                        Console.SetCursorPosition(27, fila);
+                        Console.SetCursorPosition(44, fila);
                         Console.WriteLine("No hay partidas guardadas todavia...");
                     }
                     else
@@ -53,7 +53,7 @@ namespace Proyecto_02
                 visualizacion.ganadores();
                 for (int i = 0; i < 10; i++)
                 {
-                    Console.SetCursorPosition(21, fila);
+                    Console.SetCursorPosition(37, fila);
                     Console.WriteLine(partidasamostrar[i]);
                     Thread.Sleep(300);
                     fila += 1;

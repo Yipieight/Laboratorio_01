@@ -7,6 +7,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Diagnostics;
 using System.IO;
+using System.Windows.Forms;
 
 namespace Proyecto_02
 {
@@ -19,6 +20,161 @@ namespace Proyecto_02
             posicionac[1] = Console.CursorTop;
         }
 
+        //-------------------------------------------------------------------------------------------------------------------
+        //visualizacion del menu de nombres
+
+        public static void menunombres()
+        {
+            Console.Clear();
+            nombre();
+            nombrej1();
+            mostrartablanombres();
+
+        }
+        public static int menunombrescodigo()
+        {
+            do
+            {
+                Jugadorvs.jugador1 = Jugadorvs.jugador1 + Controles.controlesnombres();
+            }
+            while (true);
+            return 1;
+        }
+        public static void mostrartablanombres()
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                //Console.SetCursorPosition(80, 15 + i);
+                for (int e = 0; e < Controles.letrastabla.GetLength(1); e++)
+                {
+                    Console.Write(Controles.letrastabla[i, e] + "\t");
+                }
+                Console.WriteLine();
+            }
+        }
+        public static void nombre()
+        {
+            Console.WriteLine("" +
+                "\r\n███╗░░██╗░█████╗░███╗░░░███╗██████╗░██████╗░███████╗" +
+                "\r\n████╗░██║██╔══██╗████╗░████║██╔══██╗██╔══██╗██╔════╝" +
+                "\r\n██╔██╗██║██║░░██║██╔████╔██║██████╦╝██████╔╝█████╗░░" +
+                "\r\n██║╚████║██║░░██║██║╚██╔╝██║██╔══██╗██╔══██╗██╔══╝░░" +
+                "\r\n██║░╚███║╚█████╔╝██║░╚═╝░██║██████╦╝██║░░██║███████╗" +
+                "\r\n╚═╝░░╚══╝░╚════╝░╚═╝░░░░░╚═╝╚═════╝░╚═╝░░╚═╝╚══════╝");
+            Console.WriteLine("════════════════════════════════════════════════");
+        }
+        public static void nombrej1()
+        {
+            Console.WriteLine("" +
+                "\r\n░░▒█ ▄█░ " +
+                "\r\n▄░▒█ ░█░ " +
+                "\r\n█▄▄█ ▄█▄");
+        }
+        public static void nombrej2()
+        {
+            Console.WriteLine("" +
+                "\r\n░░▒█ █▀█ " +
+                "\r\n▄░▒█ ░▄▀ " +
+                "\r\n█▄▄█ █▄▄");
+        }
+        //-------------------------------------------------------------------------------------------------------------------
+        //visualizacion del menu de modo de juegos
+        public static int menumododejuego()
+        {
+            mododejuego();
+            jvsj();
+            jvsb();
+            menuregresar();
+            return Controles.mododejuego();
+        }
+        public static void mododejuego() 
+        {
+            Console.Clear();
+            Console.WriteLine("" +
+                "\r\n\t███╗░░░███╗░█████╗░██████╗░░█████╗░  ██████╗░███████╗  ░░░░░██╗██╗░░░██╗███████╗░██████╗░░█████╗░" +
+                "\r\n\t████╗░████║██╔══██╗██╔══██╗██╔══██╗  ██╔══██╗██╔════╝  ░░░░░██║██║░░░██║██╔════╝██╔════╝░██╔══██╗" +
+                "\r\n\t██╔████╔██║██║░░██║██║░░██║██║░░██║  ██║░░██║█████╗░░  ░░░░░██║██║░░░██║█████╗░░██║░░██╗░██║░░██║" +
+                "\r\n\t██║╚██╔╝██║██║░░██║██║░░██║██║░░██║  ██║░░██║██╔══╝░░  ██╗░░██║██║░░░██║██╔══╝░░██║░░╚██╗██║░░██║" +
+                "\r\n\t██║░╚═╝░██║╚█████╔╝██████╔╝╚█████╔╝  ██████╔╝███████╗  ╚█████╔╝╚██████╔╝███████╗╚██████╔╝╚█████╔╝" +
+                "\r\n\t╚═╝░░░░░╚═╝░╚════╝░╚═════╝░░╚════╝░  ╚═════╝░╚══════╝  ░╚════╝░░╚═════╝░╚══════╝░╚═════╝░░╚════╝░");
+            Console.WriteLine("════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════");
+        }
+        public static void jvsj()
+        {
+            Console.WriteLine("" +
+                "\r\n\t░░▒█ ▄█░ 　 ▀█░█▀ █▀▀ 　 ░░░▒█ █▀█ " +
+                "\r\n\t▄░▒█ ░█░ 　 ░█▄█░ ▀▀█ 　 ░▄░▒█ ░▄▀ " +
+                "\r\n\t█▄▄█ ▄█▄ 　 ░░▀░░ ▀▀▀ 　 ▒█▄▄█ █▄▄");
+        }
+        public static void jvsb()
+        {
+            Console.WriteLine("" +
+                "\r\n\t░░▒█ ▄█░ 　 ▀█░█▀ █▀▀ 　 ▒█▀▀█ █▀▀█ ▀▀█▀▀ " +
+                "\r\n\t▄░▒█ ░█░ 　 ░█▄█░ ▀▀█ 　 ▒█▀▀▄ █░░█ ░░█░░ " +
+                "\r\n\t█▄▄█ ▄█▄ 　 ░░▀░░ ▀▀▀ 　 ▒█▄▄█ ▀▀▀▀ ░░▀░░");
+        }
+        public static void menuregresar()
+        {
+            Console.WriteLine("" +
+                "\r\n\t█▀▀▄ █▀▀█ █▀▀ █░█" +
+                "\r\n\t█▀▀▄ █▄▄█ █░░ █▀▄" +
+                "\r\n\t▀▀▀░ ▀░░▀ ▀▀▀ ▀░▀");
+        }
+        //-------------------------------------------------------------------------------------------------------------------
+        //visualizacion del menu principal
+        public static int menuprincipal()
+        {
+            Console.Clear();
+            menu();
+            jugar();
+            instrucciones();
+            historial();
+            salir();
+            return Controles.controlesmenu();
+        }
+
+        public static void menu()
+        {
+            Console.Write("\r\n\t███╗░░░███╗███████╗███╗░░██╗██╗░░░██╗" +
+                "\r\n\t████╗░████║██╔════╝████╗░██║██║░░░██║" +
+                "\r\n\t██╔████╔██║█████╗░░██╔██╗██║██║░░░██║" +
+                "\r\n\t██║╚██╔╝██║██╔══╝░░██║╚████║██║░░░██║" +
+                "\r\n\t██║░╚═╝░██║███████╗██║░╚███║╚██████╔╝" +
+                "\r\n\t╚═╝░░░░░╚═╝╚══════╝╚═╝░░╚══╝░╚═════╝░ \n");
+            Console.WriteLine("═══════════════════════════════════════════════════════");
+        }
+        public static string flecha()
+        {
+            return("██");
+        }
+        public static void jugar()
+        {
+            Console.WriteLine("" +
+                "\r\n\t░░▒█ █░░█ █▀▀▀ █▀▀█ █▀▀█ " +
+                "\r\n\t▄░▒█ █░░█ █░▀█ █▄▄█ █▄▄▀ " +
+                "\r\n\t█▄▄█ ░▀▀▀ ▀▀▀▀ ▀░░▀ ▀░▀▀");
+        }
+        public static void instrucciones()
+        {
+            Console.WriteLine("" +
+                "\r\n\t▀█▀ █▀▀▄ █▀▀ ▀▀█▀▀ █▀▀█ █░░█ █▀▀ █▀▀ ░▀░ █▀▀█ █▀▀▄ █▀▀ █▀▀ " +
+                "\r\n\t▒█░ █░░█ ▀▀█ ░░█░░ █▄▄▀ █░░█ █░░ █░░ ▀█▀ █░░█ █░░█ █▀▀ ▀▀█ " +
+                "\r\n\t▄█▄ ▀░░▀ ▀▀▀ ░░▀░░ ▀░▀▀ ░▀▀▀ ▀▀▀ ▀▀▀ ▀▀▀ ▀▀▀▀ ▀░░▀ ▀▀▀ ▀▀▀");
+        }
+        public static void historial()
+        {
+            Console.WriteLine("" +
+                "\r\n\t█░▒█ ░▀░ █▀▀ ▀▀█▀▀ █▀▀█ █▀▀█ ░▀░ █▀▀█ █░░ " +
+                "\r\n\t█▀▀█ ▀█▀ ▀▀█ ░░█░░ █░░█ █▄▄▀ ▀█▀ █▄▄█ █░░ " +
+                "\r\n\t█░▒█ ▀▀▀ ▀▀▀ ░░▀░░ ▀▀▀▀ ▀░▀▀ ▀▀▀ ▀░░▀ ▀▀▀");
+        }
+        public static void salir()
+        {
+            Console.WriteLine("" +
+                "\r\n\t█▀▀▀█ █▀▀█ █░░ ░▀░ █▀▀█" +
+                "\r\n\t▀▀▀▄▄ █▄▄█ █░░ ▀█▀ █▄▄▀" +
+                "\r\n\t█▄▄▄█ ▀░░▀ ▀▀▀ ▀▀▀ ▀░▀▀");
+        }
         //--------------------------------------------------------------------------------------------------------------------
         //visualizacion de turnos en la tabla
         public static void mostrarturnoj1()
@@ -51,7 +207,7 @@ namespace Proyecto_02
             Console.WriteLine("TURNO DE:\n");
             Console.SetCursorPosition(23, 3);
             Console.Write("█▄▄ █▀█ ▀█▀");
-            Console.Write("  (" + Jugadorvs.nombreactual[1] + ")");
+            Console.Write("  (" + Jugadorvs.nombreactual[2] + ")");
             Console.SetCursorPosition(23, 4);
             Console.Write("█▄█ █▄█  █");
             Console.SetCursorPosition(posicionac[0], posicionac[1]);
@@ -122,14 +278,14 @@ namespace Proyecto_02
         public static void ganadores()
         {
             Console.Clear();
-            Console.WriteLine("\r\n\t░██████╗░░█████╗░███╗░░██╗░█████╗░██████╗░░█████╗░██████╗░███████╗░██████╗" +
-                "\r\n\t██╔════╝░██╔══██╗████╗░██║██╔══██╗██╔══██╗██╔══██╗██╔══██╗██╔════╝██╔════╝" +
-                "\r\n\t██║░░██╗░███████║██╔██╗██║███████║██║░░██║██║░░██║██████╔╝█████╗░░╚█████╗░" +
-                "\r\n\t██║░░╚██╗██╔══██║██║╚████║██╔══██║██║░░██║██║░░██║██╔══██╗██╔══╝░░░╚═══██╗" +
-                "\r\n\t╚██████╔╝██║░░██║██║░╚███║██║░░██║██████╔╝╚█████╔╝██║░░██║███████╗██████╔╝" +
-                "\r\n\t░╚═════╝░╚═╝░░╚═╝╚═╝░░╚══╝╚═╝░░╚═╝╚═════╝░░╚════╝░╚═╝░░╚═╝╚══════╝╚═════╝░");
+            Console.WriteLine("\r\n\t\t\t░██████╗░░█████╗░███╗░░██╗░█████╗░██████╗░░█████╗░██████╗░███████╗░██████╗" +
+                "\r\n\t\t\t██╔════╝░██╔══██╗████╗░██║██╔══██╗██╔══██╗██╔══██╗██╔══██╗██╔════╝██╔════╝" +
+                "\r\n\t\t\t██║░░██╗░███████║██╔██╗██║███████║██║░░██║██║░░██║██████╔╝█████╗░░╚█████╗░" +
+                "\r\n\t\t\t██║░░╚██╗██╔══██║██║╚████║██╔══██║██║░░██║██║░░██║██╔══██╗██╔══╝░░░╚═══██╗" +
+                "\r\n\t\t\t╚██████╔╝██║░░██║██║░╚███║██║░░██║██████╔╝╚█████╔╝██║░░██║███████╗██████╔╝" +
+                "\r\n\t\t\t░╚═════╝░╚═╝░░╚═╝╚═╝░░╚══╝╚═╝░░╚═╝╚═════╝░░╚════╝░╚═╝░░╚═╝╚══════╝╚═════╝░");
 
-            Console.SetCursorPosition(19,8);
+            Console.SetCursorPosition(35,8);
             Console.WriteLine("Partida | Usuario | Turnos | Modo de juego | Tiempo");
         }
 
@@ -182,8 +338,8 @@ namespace Proyecto_02
         {
             string espacios = "\t\t\t\t\t\t\t\t\t     ";
             Console.SetCursorPosition(0, 7);
-            Console.Write("\n\n" + espacios + "\t\t\t█▄▄ █▀█ ▀█▀" +
-                "\r\n" + espacios + "\t\t\t█▄█ █▄█  █");
+            Console.Write("\n\n" + espacios + "\t\t   █▄▄ █▀█ ▀█▀" +
+                "\r\n" + espacios + "\t\t   █▄█ █▄█  █");
             Console.WriteLine("\r\n\n" + espacios + "═══════════════════════════════════════════\n\n");
             for (int i = 0; i < 2; i++)
             {

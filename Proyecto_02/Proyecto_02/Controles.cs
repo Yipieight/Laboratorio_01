@@ -13,42 +13,77 @@ namespace Proyecto_02
         public static ConsoleKeyInfo tecla;
         public static int subindice = 0;
 
-
-        public static void controlesmenu()
+        public static int mododejuego()
         {
-            int fila = 27, posicion = 2;
-            string[] flecha = new string[5] { "◄", " ", " ", " ", " " };
-            subindice = 0;
+            int fila = 2, posicion = 10;
+            string[] flecha = new string[3] { visualizacion.flecha(), "  ", "  "};
+            int subindice = 0;
             Console.SetCursorPosition(fila, posicion);
             Console.Write(flecha[subindice]);
             do
             {
                 tecla = Console.ReadKey(true);
-                if (tecla.Key == ConsoleKey.UpArrow && 2 != posicion || tecla.Key == ConsoleKey.W && 2 != posicion)
+                if (tecla.Key == ConsoleKey.UpArrow && 10 != posicion || tecla.Key == ConsoleKey.W && 10 != posicion)
                 {
-                    flecha[subindice] = flecha[subindice].Replace("◄", " ");
+                    flecha[subindice] = flecha[subindice].Replace(visualizacion.flecha(), "  ");
                     Console.SetCursorPosition(fila, posicion);
                     Console.Write(flecha[subindice]);
-                    posicion -= 1;
+                    posicion -= 4;
                     subindice -= 1;
                     Console.SetCursorPosition(fila, posicion);
-                    flecha[subindice] = flecha[subindice].Replace(" ", "◄");
+                    flecha[subindice] = flecha[subindice].Replace("  ", visualizacion.flecha());
                     Console.Write(flecha[subindice]);
                 }
-                else if (tecla.Key == ConsoleKey.DownArrow && 6 != posicion || tecla.Key == ConsoleKey.S && 6 != posicion)
+                else if (tecla.Key == ConsoleKey.DownArrow && 18 != posicion || tecla.Key == ConsoleKey.S && 18 != posicion)
                 {
-                    flecha[subindice] = flecha[subindice].Replace("◄", " ");
+                    flecha[subindice] = flecha[subindice].Replace(visualizacion.flecha(), "  ");
                     Console.SetCursorPosition(fila, posicion);
                     Console.Write(flecha[subindice]);
-                    posicion += 1;
+                    posicion += 4;
                     subindice += 1;
                     Console.SetCursorPosition(fila, posicion);
-                    flecha[subindice] = flecha[subindice].Replace(" ", "◄");
+                    flecha[subindice] = flecha[subindice].Replace("  ", visualizacion.flecha());
                     Console.Write(flecha[subindice]);
                 }
             }
             while (tecla.Key != ConsoleKey.Enter);
-            subindice += 1;
+            return subindice += 1;
+        }
+        public static int controlesmenu()
+        {
+            int fila = 2, posicion = 10;
+            string[] flecha = new string[4] { visualizacion.flecha(), "  ", "  ", "  " };
+            int subindice = 0;
+            Console.SetCursorPosition(fila, posicion);
+            Console.Write(flecha[subindice]);
+            do
+            {
+                tecla = Console.ReadKey(true);
+                if (tecla.Key == ConsoleKey.UpArrow && 10 != posicion || tecla.Key == ConsoleKey.W && 10 != posicion)
+                {
+                    flecha[subindice] = flecha[subindice].Replace(visualizacion.flecha(),"  ");
+                    Console.SetCursorPosition(fila, posicion);
+                    Console.Write(flecha[subindice]);
+                    posicion -= 4;
+                    subindice -= 1;
+                    Console.SetCursorPosition(fila, posicion);
+                    flecha[subindice] = flecha[subindice].Replace("  ", visualizacion.flecha());
+                    Console.Write(flecha[subindice]);
+                }
+                else if (tecla.Key == ConsoleKey.DownArrow && 22 != posicion || tecla.Key == ConsoleKey.S && 22 != posicion)
+                {
+                    flecha[subindice] = flecha[subindice].Replace(visualizacion.flecha(), "  ");
+                    Console.SetCursorPosition(fila, posicion);
+                    Console.Write(flecha[subindice]);
+                    posicion += 4;
+                    subindice += 1;
+                    Console.SetCursorPosition(fila, posicion);
+                    flecha[subindice] = flecha[subindice].Replace("  ", visualizacion.flecha());
+                    Console.Write(flecha[subindice]);
+                }
+            }
+            while (tecla.Key != ConsoleKey.Enter);
+            return subindice += 1;
         }
         //----------------------------------------------------------------------------------------------------------------------------------------------------
         //menú de colocar pieza
@@ -181,6 +216,56 @@ namespace Proyecto_02
             while (tecla.Key != ConsoleKey.Enter || Jugadorvs.jugador1 == tablaflecha[columna].Replace(flecha, " "));
             return columna;
 
+        }
+        public static string[,] letrastabla = new string[4, 9] { { "[1]", "2", "3", "4", "5", "6", "7", "8", "9" }, { "A", "B", "C", "D", "E", "F", "G", "H", "◄" }, { "I", "J", "K", "L", "M", "N", "O", "P", "Q" }, { "R", "S", "T", "U", "V", "W", "X", "Y", "►" } };
+        public static string controlesnombres()
+        {
+            piezas1[0, 0] = "[1]"; columna = 0; fila = 0;
+            string flechaiz = "["; string flechade = "]";
+            do
+            {
+                visualizacion.menunombres();
+                tecla = Console.ReadKey(true);
+                if (tecla.Key == ConsoleKey.UpArrow && 0 != fila || tecla.Key == ConsoleKey.W && 0 != fila)
+                {
+                    letrastabla[fila, columna] = letrastabla[fila, columna].Replace(flechaiz, "").Replace(flechade, "");
+                    fila -= 1;
+                    letrastabla[fila, columna] = letrastabla[fila, columna].Insert(0, flechaiz).Insert(letrastabla[fila, columna].Length + 1, flechade);
+
+                }
+                else if (tecla.Key == ConsoleKey.DownArrow && 3 != fila || tecla.Key == ConsoleKey.S && 3 != fila)
+                {
+                    letrastabla[fila, columna] = letrastabla[fila, columna].Replace(flechaiz, "").Replace(flechade, "");
+                    fila += 1;
+                    letrastabla[fila, columna] = letrastabla[fila, columna].Insert(0, flechaiz).Insert(letrastabla[fila, columna].Length + 1, flechade);
+                }
+                else if (tecla.Key == ConsoleKey.RightArrow && letrastabla.GetLength(1) - 1 != columna || tecla.Key == ConsoleKey.D && letrastabla.GetLength(1) - 1 != columna)
+                {
+                    letrastabla[fila, columna] = letrastabla[fila, columna].Replace(flechaiz, "").Replace(flechade, "");
+                    columna += 1;
+                    letrastabla[fila, columna] = letrastabla[fila, columna].Insert(0, flechaiz).Insert(letrastabla[fila, columna].Length + 1, flechade);
+                }
+                else if (tecla.Key == ConsoleKey.LeftArrow && 0 != columna || tecla.Key == ConsoleKey.A && 0 != columna)
+                {
+                    letrastabla[fila, columna] = letrastabla[fila, columna].Replace(flechaiz, "").Replace(flechade, "");
+                    columna -= 1;
+                    letrastabla[fila, columna] = letrastabla[fila, columna].Insert(0, flechaiz).Insert(piezas1[fila, columna].Length + 1, flechade);
+                }
+                else if (tecla.Key == ConsoleKey.Backspace)
+                {
+                    piezas1 = new string[2, 5] { { "♣", "♠", "♥", "♦", "☺" }, { "X", "O", "@", "#", "☻" } };
+                    visualizacion.mostrarpiezas();
+                    Jugadorvs.jugador1 = "";
+                    return "";
+                }
+                if (Jugadorvs.jugador1 == piezas1[fila, columna].Replace(flechaiz, "").Replace(flechade, "") && tecla.Key == ConsoleKey.Enter)
+                {
+                    visualizacion.incorrecto();
+                    Thread.Sleep(1000);
+                }
+            }
+            while (tecla.Key != ConsoleKey.Enter || Jugadorvs.jugador1 == piezas[fila, columna].Replace(flechaiz, "").Replace(flechade, ""));
+            return piezas1[fila, columna] = piezas[fila, columna].Replace(flechaiz, "").Replace(flechade, "");
         }
 
     }
