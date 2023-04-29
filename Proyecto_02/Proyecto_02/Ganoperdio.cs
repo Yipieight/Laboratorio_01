@@ -23,7 +23,7 @@ namespace Proyecto_02
             rectahorizontal();
             diagonal();
             reversadiagonal();
-            Tabla.tablamostrar();
+
         }
         public static void empate()
         {
@@ -206,6 +206,8 @@ namespace Proyecto_02
             Jugadorvs.turnosporjugador[0] = 0; Jugadorvs.turnosporjugador[1] = 0; Jugadorvs.turnosporjugador[2] = 0;
             string partidasstring = "";
             string turnosstring = "";
+            Jugadorvs.nombreactual[0] = "";
+            Jugadorvs.nombreactual[1] = "";
             if (Conecta4.contadorpartidas < 10)
             {
                 partidasstring = "0" + Conecta4.contadorpartidas;

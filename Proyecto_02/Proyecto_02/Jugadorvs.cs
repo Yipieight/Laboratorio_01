@@ -54,9 +54,9 @@ namespace Proyecto_02
                 do
                 {
                     columna = r.Next(0,7);
+                    Thread.Sleep(600);
                 }
                 while (Tabla.tablacolocar(columna));
-                Thread.Sleep(600);
                 turnosporjugador[2] += 1;
             }
         }
@@ -65,15 +65,12 @@ namespace Proyecto_02
             Console.Clear();
             if (Controles.subindice == 1)
             {
-                Console.WriteLine("Ingrese el nombre del primer jugador (J1)");
-                nombreactual[0] = Console.ReadLine();
-                Console.WriteLine("Ingrese el nombre del segundo jugador (J2)");
-                nombreactual[1] = Console.ReadLine();
+                visualizacion.menunombrescodigoj1();
+                visualizacion.menunombrescodigoj2();
             }
             else if (Controles.subindice == 2)
             {
-                Console.WriteLine("Ingrese el nombre del primer jugador (J1)");
-                nombreactual[0] = Console.ReadLine();
+                visualizacion.menunombrescodigoj1();
                 nombreactual[2] = "CPU1";
             }
 

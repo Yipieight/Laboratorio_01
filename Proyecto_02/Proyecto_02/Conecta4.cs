@@ -19,7 +19,6 @@ namespace Proyecto_02
         
         static void Main(string[] args)
         {
-            visualizacion.menunombrescodigo();
             Console.CursorVisible = false;
             visualizacion.bienvenida();
             Historialdepartida.crearpartidasguardadas();
@@ -31,7 +30,7 @@ namespace Proyecto_02
                         menumododejuegos();
                         break;
                     case 2:
-                        
+                        visualizacion.menuinstrucciones();
                         break;
                     case 3:
                         Historialdepartida.mostrarhistorialdepartida();
@@ -43,7 +42,7 @@ namespace Proyecto_02
 
         public static void menumododejuegos()
         {
-            switch (visualizacion.menumododejuego())
+            switch (Controles.subindice = visualizacion.menumododejuego())
             {
                 case 1:
                     Tabla.tablacrear();

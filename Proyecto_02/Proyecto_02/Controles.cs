@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Threading;
 using System.Security.Policy;
 using System.Windows.Forms;
+using System.Runtime.InteropServices.WindowsRuntime;
 
 namespace Proyecto_02
 {
@@ -199,7 +200,7 @@ namespace Proyecto_02
             columna = 0;
             do
             {
-                Tabla.tablamostrar();
+                Tabla. tablamostrar();
                 tecla = Console.ReadKey(true);
                 if (tecla.Key == ConsoleKey.RightArrow && 6 != columna || tecla.Key == ConsoleKey.D && 6 != columna)
                 {
@@ -220,7 +221,7 @@ namespace Proyecto_02
 
         }
         public static string[,] letrastabla = new string[4, 9] { { "[1]", "2", "3", "4", "5", "6", "7", "8", "9" }, { "A", "B", "C", "D", "E", "F", "G", "H", "◄" }, { "I", "J", "K", "L", "M", "N", "O", "P", "Q" }, { "R", "S", "T", "U", "V", "W", "X", "Y", "►" } };
-        public static string controlesnombres()
+        public static string controlesnombresj1()
         {
             letrastabla = new string[4, 9] { { "[1]", "2", "3", "4", "5", "6", "7", "8", "9" }, { "A", "B", "C", "D", "E", "F", "G", "H", "I" }, { "J", "K", "L", "M", "N", "O", "P", "Q", "R" }, { "S", "T", "U", "V", "W", "X", "Y", "Z", "►" } };
             columna = 0; fila = 0; visualizacion.letras = true;
@@ -228,7 +229,7 @@ namespace Proyecto_02
             string flechaiz = "["; string flechade = "]";
             do
             {
-                visualizacion.menunombres();
+                visualizacion.menunombresj1();
                 tecla = Console.ReadKey(true);
                 if (tecla.Key == ConsoleKey.UpArrow && 0 != fila || tecla.Key == ConsoleKey.W && 0 != fila)
                 {
@@ -260,20 +261,94 @@ namespace Proyecto_02
                     letranombre = Jugadorvs.nombreactual[0] = Jugadorvs.nombreactual[0].Substring(0, Jugadorvs.nombreactual[0].Length - 1);
                     return letranombre;
                 }
+                if((tecla.Key == ConsoleKey.Enter && letrastabla[fila,columna].Contains("►")) && Jugadorvs.nombreactual[0].Length < 4)
+                {
+                    Console.Write("\r\n\n\t  ▒█▀▀▄ █▀▀ █▀▀▄ █▀▀ 　 ▀▀█▀▀ █▀▀ █▀▀▄ █▀▀ █▀▀█ 　 ░█▀█░ 　 █▀▀ █▀▀█ █▀▀█ █▀▀█ █▀▀ ▀▀█▀▀ █▀▀█ █▀▀█ █▀▀ █▀▀ " +
+                        "\r\n\t  ▒█░▒█ █▀▀ █▀▀▄ █▀▀ 　 ░░█░░ █▀▀ █░░█ █▀▀ █▄▄▀ 　 █▄▄█▄ 　 █░░ █▄▄█ █▄▄▀ █▄▄█ █░░ ░░█░░ █▄▄█ █▄▄▀ █▀▀ ▀▀█ " +
+                        "\r\n\t  ▒█▄▄▀ ▀▀▀ ▀▀▀░ ▀▀▀ 　 ░░▀░░ ▀▀▀ ▀░░▀ ▀▀▀ ▀░▀▀ 　 ░░░█░ 　 ▀▀▀ ▀░░▀ ▀░▀▀ ▀░░▀ ▀▀▀ ░░▀░░ ▀░░▀ ▀░▀▀ ▀▀▀ ▀▀▀");
+                    Thread.Sleep(1000);
+                    return Jugadorvs.nombreactual[0];
+                }
                 else if(tecla.Key == ConsoleKey.Enter && letrastabla[fila, columna].Contains("►"))
                 {
                     visualizacion.letras = false;
-                    break;
+                    return Jugadorvs.nombreactual[0];
                 }
             }
             while (tecla.Key != ConsoleKey.Enter || Jugadorvs.nombreactual[0] == letrastabla[fila, columna].Replace(flechaiz, "").Replace(flechade, ""));
-            if (Jugadorvs.nombreactual[0].Length < 4)
+            if (Jugadorvs.nombreactual[0].Length == 4)
             {
-                letranombre = Jugadorvs.nombreactual[0] = Controles.controlesnombres();
+                letranombre = Jugadorvs.nombreactual[0];
             }
-            else if (Jugadorvs.nombreactual[0].Length == 4)
+            else
             {
                 letranombre = Jugadorvs.nombreactual[0] += letrastabla[fila, columna] = letrastabla[fila, columna].Replace(flechaiz, "").Replace(flechade, "");
+            }
+            return letranombre;
+        }
+
+        public static string controlesnombresj2()
+        {
+            letrastabla = new string[4, 9] { { "[1]", "2", "3", "4", "5", "6", "7", "8", "9" }, { "A", "B", "C", "D", "E", "F", "G", "H", "I" }, { "J", "K", "L", "M", "N", "O", "P", "Q", "R" }, { "S", "T", "U", "V", "W", "X", "Y", "Z", "►" } };
+            columna = 0; fila = 0; visualizacion.letras = true;
+            string letranombre = "";
+            string flechaiz = "["; string flechade = "]";
+            do
+            {
+                visualizacion.menunombresj2();
+                tecla = Console.ReadKey(true);
+                if (tecla.Key == ConsoleKey.UpArrow && 0 != fila || tecla.Key == ConsoleKey.W && 0 != fila)
+                {
+                    letrastabla[fila, columna] = letrastabla[fila, columna].Replace(flechaiz, "").Replace(flechade, "");
+                    fila -= 1;
+                    letrastabla[fila, columna] = letrastabla[fila, columna].Insert(0, flechaiz).Insert(letrastabla[fila, columna].Length + 1, flechade);
+
+                }
+                else if (tecla.Key == ConsoleKey.DownArrow && 3 != fila || tecla.Key == ConsoleKey.S && 3 != fila)
+                {
+                    letrastabla[fila, columna] = letrastabla[fila, columna].Replace(flechaiz, "").Replace(flechade, "");
+                    fila += 1;
+                    letrastabla[fila, columna] = letrastabla[fila, columna].Insert(0, flechaiz).Insert(letrastabla[fila, columna].Length + 1, flechade);
+                }
+                else if (tecla.Key == ConsoleKey.RightArrow && letrastabla.GetLength(1) - 1 != columna || tecla.Key == ConsoleKey.D && letrastabla.GetLength(1) - 1 != columna)
+                {
+                    letrastabla[fila, columna] = letrastabla[fila, columna].Replace(flechaiz, "").Replace(flechade, "");
+                    columna += 1;
+                    letrastabla[fila, columna] = letrastabla[fila, columna].Insert(0, flechaiz).Insert(letrastabla[fila, columna].Length + 1, flechade);
+                }
+                else if (tecla.Key == ConsoleKey.LeftArrow && 0 != columna || tecla.Key == ConsoleKey.A && 0 != columna)
+                {
+                    letrastabla[fila, columna] = letrastabla[fila, columna].Replace(flechaiz, "").Replace(flechade, "");
+                    columna -= 1;
+                    letrastabla[fila, columna] = letrastabla[fila, columna].Insert(0, flechaiz).Insert(letrastabla[fila, columna].Length + 1, flechade);
+                }
+                else if (tecla.Key == ConsoleKey.Backspace && Jugadorvs.nombreactual[1].Length > 0)
+                {
+                    letranombre = Jugadorvs.nombreactual[1] = Jugadorvs.nombreactual[1].Substring(0, Jugadorvs.nombreactual[1].Length - 1);
+                    return letranombre;
+                }
+                if ((tecla.Key == ConsoleKey.Enter && letrastabla[fila, columna].Contains("►")) && Jugadorvs.nombreactual[1].Length < 4)
+                {
+                    Console.Write("\r\n\n\t  ▒█▀▀▄ █▀▀ █▀▀▄ █▀▀ 　 ▀▀█▀▀ █▀▀ █▀▀▄ █▀▀ █▀▀█ 　 ░█▀█░ 　 █▀▀ █▀▀█ █▀▀█ █▀▀█ █▀▀ ▀▀█▀▀ █▀▀█ █▀▀█ █▀▀ █▀▀ " +
+                        "\r\n\t  ▒█░▒█ █▀▀ █▀▀▄ █▀▀ 　 ░░█░░ █▀▀ █░░█ █▀▀ █▄▄▀ 　 █▄▄█▄ 　 █░░ █▄▄█ █▄▄▀ █▄▄█ █░░ ░░█░░ █▄▄█ █▄▄▀ █▀▀ ▀▀█ " +
+                        "\r\n\t  ▒█▄▄▀ ▀▀▀ ▀▀▀░ ▀▀▀ 　 ░░▀░░ ▀▀▀ ▀░░▀ ▀▀▀ ▀░▀▀ 　 ░░░█░ 　 ▀▀▀ ▀░░▀ ▀░▀▀ ▀░░▀ ▀▀▀ ░░▀░░ ▀░░▀ ▀░▀▀ ▀▀▀ ▀▀▀");
+                    Thread.Sleep(1000);
+                    return Jugadorvs.nombreactual[1];
+                }
+                else if (tecla.Key == ConsoleKey.Enter && letrastabla[fila, columna].Contains("►"))
+                {
+                    visualizacion.letras = false;
+                    return Jugadorvs.nombreactual[1];
+                }
+            }
+            while (tecla.Key != ConsoleKey.Enter || Jugadorvs.nombreactual[1] == letrastabla[fila, columna].Replace(flechaiz, "").Replace(flechade, ""));
+            if (Jugadorvs.nombreactual[1].Length == 4)
+            {
+                letranombre = Jugadorvs.nombreactual[1];
+            }
+            else
+            {
+                letranombre = Jugadorvs.nombreactual[1] += letrastabla[fila, columna] = letrastabla[fila, columna].Replace(flechaiz, "").Replace(flechade, "");
             }
             return letranombre;
         }

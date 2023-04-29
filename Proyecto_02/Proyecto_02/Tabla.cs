@@ -47,7 +47,6 @@ namespace Proyecto_02
 
         public static bool tablacolocar(int columna)
         {
-            Tabla.tablamostrar();
             if ((tabla[0, columna].Contains(Jugadorvs.jugador1) || tabla[0, columna].Contains(Jugadorvs.jugador2)) && (Jugadorvs.piezactual != Jugadorvs.jugador1 && Jugadorvs.nombreactual[2] == "CPU1"))
             {
                 return true;

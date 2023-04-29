@@ -21,11 +21,77 @@ namespace Proyecto_02
             posicionac[0] = Console.CursorLeft;
             posicionac[1] = Console.CursorTop;
         }
+        //-------------------------------------------------------------------------------------------------------------------
+        //visualizacion del menu de modo de juegos
+
+        public static void menuinstrucciones()
+        {
+            Console.Clear();
+            menuinst();
+            explicacion();
+            Console.ReadKey();
+
+        }
+        public static void explicacion()
+        {
+            Console.WriteLine("\n\t\t\tEl jugador que primero logre conectar cuatro fichas de su color gana. Las");
+            Console.WriteLine("\t\t\t   fichas pueden estar conectadas verticalmente, horizontalmente o en");
+            Console.WriteLine("\t\t\t\t\t    diagonal. Como se observa ahora:");
+
+            Console.SetCursorPosition(4, 14);
+            Console.WriteLine("HORIZONTALMENTE");
+            Console.SetCursorPosition(30, 15);
+            Console.WriteLine("\r\n\t  ▄▄ " + "\r\n\t  ██ " + "\r\n\t  ▄▄ " + "\r\n\t  ██ " + "\r\n\t  ▄▄ " + "\r\n\t  ██ " + "\r\n\t  ▄▄ " +
+                "\r\n\t  ██");
+            Console.SetCursorPosition(38, 14);
+            Console.WriteLine("VERTICALMENTE");
+            Console.SetCursorPosition(36, 20);
+            Console.Write("██   ██   ██   ██");
+
+            Console.SetCursorPosition(102, 14);
+            Console.WriteLine("DIAGONAL INVERSA");
+            Console.SetCursorPosition(70, 15);
+            Console.WriteLine(
+                "\r\n\t\t\t\t\t\t\t\t\t\t\t\t      ▄▄ " +
+                "\r\n\t\t\t\t\t\t\t\t\t\t\t\t      ██ " +
+                "\r\n\t\t\t\t\t\t\t\t\t\t\t\t          ▄▄ " +
+                "\r\n\t\t\t\t\t\t\t\t\t\t\t\t          ██ " +
+                "\r\n\t\t\t\t\t\t\t\t\t\t\t\t              ▄▄ " + "" +
+                "\r\n\t\t\t\t\t\t\t\t\t\t\t\t              ██ " +
+                "\r\n\t\t\t\t\t\t\t\t\t\t\t\t                  ▄▄ " +
+                "\r\n\t\t\t\t\t\t\t\t\t\t\t\t                  ██ ");
+
+            Console.SetCursorPosition(72, 14);
+            Console.WriteLine("DIAGONAL");
+            Console.SetCursorPosition(70, 15);
+            Console.WriteLine(
+                "\r\n\t\t\t\t\t\t\t\t                ▄▄ " +
+                "\r\n\t\t\t\t\t\t\t\t                ██ " +
+                "\r\n\t\t\t\t\t\t\t\t            ▄▄ " +
+                "\r\n\t\t\t\t\t\t\t\t            ██ " +
+                "\r\n\t\t\t\t\t\t\t\t        ▄▄ " +
+                "\r\n\t\t\t\t\t\t\t\t        ██ " +
+                "\r\n\t\t\t\t\t\t\t\t    ▄▄ " +
+                "\r\n\t\t\t\t\t\t\t\t    ██ ");
+
+
+        }
+        public static void menuinst()
+        {
+            Console.WriteLine("" +
+                "\r\n\t   ██╗███╗░░██╗░██████╗████████╗██████╗░██╗░░░██╗░█████╗░░█████╗░██╗░█████╗░███╗░░██╗███████╗░██████╗" +
+                "\r\n\t   ██║████╗░██║██╔════╝╚══██╔══╝██╔══██╗██║░░░██║██╔══██╗██╔══██╗██║██╔══██╗████╗░██║██╔════╝██╔════╝" +
+                "\r\n\t   ██║██╔██╗██║╚█████╗░░░░██║░░░██████╔╝██║░░░██║██║░░╚═╝██║░░╚═╝██║██║░░██║██╔██╗██║█████╗░░╚█████╗░" +
+                "\r\n\t   ██║██║╚████║░╚═══██╗░░░██║░░░██╔══██╗██║░░░██║██║░░██╗██║░░██╗██║██║░░██║██║╚████║██╔══╝░░░╚═══██╗" +
+                "\r\n\t   ██║██║░╚███║██████╔╝░░░██║░░░██║░░██║╚██████╔╝╚█████╔╝╚█████╔╝██║╚█████╔╝██║░╚███║███████╗██████╔╝" +
+                "\r\n\t   ╚═╝╚═╝░░╚══╝╚═════╝░░░░╚═╝░░░╚═╝░░╚═╝░╚═════╝░░╚════╝░░╚════╝░╚═╝░╚════╝░╚═╝░░╚══╝╚══════╝╚═════╝░");
+            Console.WriteLine("\t════════════════════════════════════════════════════════════════════════════════════════════════════════");
+        }
 
         //-------------------------------------------------------------------------------------------------------------------
         //visualizacion del menu de nombres
 
-        public static void menunombres()
+        public static void menunombresj1()
         {
             Console.Clear();
             nombre();
@@ -33,15 +99,32 @@ namespace Proyecto_02
             mostrartablanombres();
 
         }
-        public static void menunombrescodigo()
+        public static void menunombresj2()
+        {
+            Console.Clear();
+            nombre();
+            nombrej2();
+            mostrartablanombres();
+
+        }
+        public static void menunombrescodigoj1()
         {
             do
             {
-                Jugadorvs.nombreactual[0] = Controles.controlesnombres();
+                Jugadorvs.nombreactual[0] = Controles.controlesnombresj1();
             }
             while (letras == true);
-            //return 1;
         }
+        public static void menunombrescodigoj2()
+        {
+            do
+            {
+                Jugadorvs.nombreactual[1] = Controles.controlesnombresj2();
+            }
+            while (letras == true);
+        }
+
+
         public static void mostrartablanombres()
         {
             for (int i = 0; i < 4; i++)
@@ -77,9 +160,12 @@ namespace Proyecto_02
         public static void nombrej2()
         {
             Console.WriteLine("" +
-                "\r\n\t\t\t\t░░▒█ █▀█ " +
-                "\r\n\t\t\t\t▄░▒█ ░▄▀ " +
-                "\r\n\t\t\t\t█▄▄█ █▄▄");
+                "\r\n\t\t\t\t\t\t     ░░▒█ █▀█ " +
+                "\r\n\t\t\t\t\t\t     ▄░▒█ ░▄▀ " +
+                "\r\n\t\t\t\t\t\t     █▄▄█ █▄▄");
+            Console.SetCursorPosition(55, 13);
+            Console.WriteLine(Jugadorvs.nombreactual[1] + "\n");
+
         }
         //-------------------------------------------------------------------------------------------------------------------
         //visualizacion del menu de modo de juegos
@@ -335,7 +421,7 @@ namespace Proyecto_02
             if (Jugadorvs.nombreactual[2] == "CPU1")
             {
                 mostrarpiezasbot();
-            }
+            }   
         }
 
         public static void mostrarpiezasbot()
