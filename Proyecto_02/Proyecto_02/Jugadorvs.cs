@@ -11,13 +11,14 @@ namespace Proyecto_02
 {
     class Jugadorvs
     {
-        public static int[] turnosporjugador = new int[3] { 0, 0,0 };
-        public static string[] nombreactual = new string[3];
+        public static int[] turnosporjugador = new int[3] { 0, 0, 0 };
+        public static string[] nombreactual = new string[3] { "", "", "" };
         public static string piezactual = "";
         public static string jugador1 = "", jugador2 = "";
         public static int columna = 0;
         public static void colocarpieza()
         {
+
             columna = Controles.controltabla();
         }
 

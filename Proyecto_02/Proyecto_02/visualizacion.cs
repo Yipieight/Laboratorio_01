@@ -35,14 +35,21 @@ namespace Proyecto_02
         {
             do
             {
-                Jugadorvs.jugador1 = Jugadorvs.jugador1 + Controles.controlesnombres();
+                if (Jugadorvs.nombreactual[0].Length < 4)
+                {
+                    Jugadorvs.nombreactual[0] = Jugadorvs.nombreactual[0] + Controles.controlesnombres();
+                }
+                else if (Jugadorvs.nombreactual[0].Length == 4)
+                {
+                    Jugadorvs.nombreactual[0] = Jugadorvs.nombreactual[0].Substring(0,Jugadorvs.nombreactual[0].Length-1) + Controles.controlesnombres();
+                }
             }
             while (true);
             return 1;
         }
         public static void mostrartablanombres()
         {
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 4; i++)
             {
                 //Console.SetCursorPosition(80, 15 + i);
                 for (int e = 0; e < Controles.letrastabla.GetLength(1); e++)
@@ -68,7 +75,8 @@ namespace Proyecto_02
             Console.WriteLine("" +
                 "\r\n░░▒█ ▄█░ " +
                 "\r\n▄░▒█ ░█░ " +
-                "\r\n█▄▄█ ▄█▄");
+                "\r\n█▄▄█ ▄█▄\n");
+            Console.WriteLine(Jugadorvs.nombreactual[0] + "\n");
         }
         public static void nombrej2()
         {

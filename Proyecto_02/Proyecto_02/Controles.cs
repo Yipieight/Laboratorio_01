@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System.Security.Policy;
+using System.Windows.Forms;
 
 namespace Proyecto_02
 {
@@ -212,6 +213,7 @@ namespace Proyecto_02
                     columna -= 1;
                     tablaflecha[columna] =  tablaflecha[columna].Replace(" ", flecha);
                 }
+
             }
             while (tecla.Key != ConsoleKey.Enter || Jugadorvs.jugador1 == tablaflecha[columna].Replace(flecha, " "));
             return columna;
@@ -220,7 +222,8 @@ namespace Proyecto_02
         public static string[,] letrastabla = new string[4, 9] { { "[1]", "2", "3", "4", "5", "6", "7", "8", "9" }, { "A", "B", "C", "D", "E", "F", "G", "H", "◄" }, { "I", "J", "K", "L", "M", "N", "O", "P", "Q" }, { "R", "S", "T", "U", "V", "W", "X", "Y", "►" } };
         public static string controlesnombres()
         {
-            piezas1[0, 0] = "[1]"; columna = 0; fila = 0;
+            letrastabla = new string[4, 9] { { "[1]", "2", "3", "4", "5", "6", "7", "8", "9" }, { "A", "B", "C", "D", "E", "F", "G", "H", "I" }, { "J", "K", "L", "M", "N", "O", "P", "Q", "R" }, { "S", "T", "U", "V", "W", "X", "Y", "Z", "►" } };
+            columna = 0; fila = 0;
             string flechaiz = "["; string flechade = "]";
             do
             {
@@ -249,23 +252,15 @@ namespace Proyecto_02
                 {
                     letrastabla[fila, columna] = letrastabla[fila, columna].Replace(flechaiz, "").Replace(flechade, "");
                     columna -= 1;
-                    letrastabla[fila, columna] = letrastabla[fila, columna].Insert(0, flechaiz).Insert(piezas1[fila, columna].Length + 1, flechade);
+                    letrastabla[fila, columna] = letrastabla[fila, columna].Insert(0, flechaiz).Insert(letrastabla[fila, columna].Length + 1, flechade);
                 }
-                else if (tecla.Key == ConsoleKey.Backspace)
+                else if (tecla.Key == ConsoleKey.Backspace && Jugadorvs.nombreactual[0].Length > 0)
                 {
-                    piezas1 = new string[2, 5] { { "♣", "♠", "♥", "♦", "☺" }, { "X", "O", "@", "#", "☻" } };
-                    visualizacion.mostrarpiezas();
-                    Jugadorvs.jugador1 = "";
-                    return "";
-                }
-                if (Jugadorvs.jugador1 == piezas1[fila, columna].Replace(flechaiz, "").Replace(flechade, "") && tecla.Key == ConsoleKey.Enter)
-                {
-                    visualizacion.incorrecto();
-                    Thread.Sleep(1000);
+                    Jugadorvs.nombreactual[0] = Jugadorvs.nombreactual[0].Substring(0, Jugadorvs.nombreactual[0].Length - 1);
                 }
             }
-            while (tecla.Key != ConsoleKey.Enter || Jugadorvs.jugador1 == piezas[fila, columna].Replace(flechaiz, "").Replace(flechade, ""));
-            return piezas1[fila, columna] = piezas[fila, columna].Replace(flechaiz, "").Replace(flechade, "");
+            while (tecla.Key != ConsoleKey.Enter || Jugadorvs.nombreactual[0] == letrastabla[fila, columna].Replace(flechaiz, "").Replace(flechade, ""));
+            return letrastabla[fila, columna] = letrastabla[fila, columna].Replace(flechaiz, "").Replace(flechade, "");
         }
 
     }
