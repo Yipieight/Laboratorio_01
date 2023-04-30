@@ -208,6 +208,8 @@ namespace Proyecto_02
             string turnosstring = "";
             Jugadorvs.nombreactual[0] = "";
             Jugadorvs.nombreactual[1] = "";
+            Jugadorvs.nombreactual[2] = "";
+            Controles.subindice = 0;
             if (Conecta4.contadorpartidas < 10)
             {
                 partidasstring = "0" + Conecta4.contadorpartidas;
@@ -226,7 +228,7 @@ namespace Proyecto_02
             }
             historialganador[ultimonumero()] = partidasstring + "       " + ganador + "       " + turnosstring + "         " + mododejuego+ "         " + tiempo;
             Historialdepartida.guardarhistorialdepartida(historialganador[ultimonumero()]);
-            Jugadorvs.jugador1 = ""; Jugadorvs.jugador2 = ""; Jugadorvs.nombreactual[2] = "CPU1";
+            Jugadorvs.jugador1 = ""; Jugadorvs.jugador2 = "";
 
             Conecta4.contadorpartidas++;
         }
